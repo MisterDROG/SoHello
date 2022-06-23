@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./vendor/normalize.css">
     <link rel="stylesheet" href="./index.css">
+    <script src="./scripts/request.js" defer></script>
     <link rel="icon" href="">
     <title>SoHello</title>
 
@@ -29,11 +30,16 @@
 
             <form class = "signIn">
                 <p class="signIn__title">So it's best time to login below:</p>
-                <p class="signIn__subTitle">Login</p>
+                <p class="signIn__subTitle" id = "signIn__login">Login</p>
                 <input type = "text" class = "signIn__input signIn__input_type_login">
-                <p class="signIn__subTitle">Password</p>
+                <p class="signIn__subTitle" id = "signIn__password">Password</p>
                 <input type = "text" class = "signIn__input signIn__input_type_password">
-
+                <button type = "submit" class = "signIn__button">Get</button>
+                <p class="signIn__subTitle"></p>
+                <input type = "text" class = "signIn__input signIn__output_type_password" placeholder="Here wil be login">
+                <p class="signIn__subTitle"></p>
+                <input type = "text" class = "signIn__input signIn__output_type_password" placeholder="Here wil be password">
+                <button type = "submit" class = "signIn__button" id="button__set">Set</button>
                 
 
             </form>

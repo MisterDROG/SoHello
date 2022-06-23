@@ -49,76 +49,125 @@
     width: 100px;
 }
 
-/* .main {
-    display: flex;
-} */
 
-.lead {
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
 
+
 }
 
-.lead__iltle {
-    margin: 80px auto 20px auto;
-    font-size: 120px;
-    padding: 0;
-}
-
-@media screen and (max-width: 1140px) {
-    .lead__iltle {
-        font-size: 120px;
-    }
-}
-
-@media screen and (max-width: 984px) {
-    .lead__iltle {
-        font-size: 80px;
-    }
-}
-
-@media screen and (max-width: 568px) {
-    .lead__iltle {
-        font-size: 60px;
-    }
-}
-
-.lead__moto {
-    margin: 0;
-    padding: 0;
-}
-
-.signIn {
-    max-width: 50%;
-    margin: 80px auto 20px auto;
-    padding: 30px;
+.menu {
+    margin: 20px auto 20px auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: #8942D6;
 }
 
-.signIn__title {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0px 0 20px 0;
-    padding: 0;
+.menu__link
+ {
+    font-size: 16px;
+    line-height: 1.12;
+    color: black;
+    text-decoration: none;
+    margin: 0 18px 0 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40%;
     text-align: center;
 }
 
-.signIn__subTitle {
-    margin: 20px 0 10px 0;
-    padding: 0; 
+.title {
+    margin: 30px auto 0px auto;
 }
 
-.signIn__input {
-    border: 0;
+.title__text {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
 }
 
-.signIn__button {
-    border: 0;
-    margin: 20px 0 0 0;
+.profile {
+    background-color: white;
+    color: black;
+    width: 90%;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.profile__photo {
+   width: 30%;
+   height: 30%; 
+   border-radius: 50%;
+   padding: 40px;
+}
+
+.profile__infoContainer {
+    width: 70%;
+    padding: 30px 40px
+}
+
+.profile__title {
+    margin: 0px auto 20px auto;
+    font-size: 25px;
+    text-align: center;
+}
+
+.profile__info {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.history {
+    width: 90%
+}
+
+
+.history__title {
+    text-align: center;
+    margin: 30px;
+}
+
+.history__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 100%;
+    gap: 20px;
+}
+
+.history__card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 5px 5px 10px grey;
+    color: black;
+    border-radius: 20px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px 30px 20px 30px;
+}
+
+.history__photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.history__name {
+    margin: 10px auto;
+}
+
+.history__date {
+    margin: 0;
 }
 
 .footer {
