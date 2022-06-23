@@ -67,6 +67,7 @@
 .menu__link
  {
     font-size: 16px;
+    font-weight: bold;
     line-height: 1.12;
     color: black;
     text-decoration: none;
@@ -76,6 +77,16 @@
     background-color: white;
     width: 40%;
     text-align: center;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.menu__link:last-child {
+    margin: 0;
+}
+
+.menu__link:hover {
+    background-color: #8942D6;
+    color: white
 }
 
 .title {
@@ -101,15 +112,30 @@
     box-shadow: 5px 5px 10px grey;
 }
 
+@media screen and (max-width: 800px) {
+    .profile {
+        flex-direction: column;
+    } 
+}
+
 .profile__photo {
-   width: 30%;
-   height: 30%; 
-   border-radius: 50%;
-   padding: 40px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    padding: 40px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 800px) {
+    .profile__photo {
+        width: 200px;
+        height: 200px;
+        padding: 30px;
+    }
 }
 
 .profile__infoContainer {
-    width: 70%;
+    flex-grow: 1;
     padding: 30px 40px
 }
 
@@ -119,9 +145,21 @@
     text-align: center;
 }
 
+@media screen and (max-width: 800px) {
+    .profile__header {
+        text-align: center;
+    }
+}
+
 .profile__info {
     font-weight: bold;
     font-size: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .profile__info {
+        text-align: center;
+    }
 }
 
 .history {
