@@ -1,7 +1,7 @@
 .page {
     background-color: #34C6CD ;
     min-width: 320px;
-    max-width: 1280px;
+    max-width: 1920px;
     margin: 0 auto;
     padding: 0;
     font-family: 'Inter', Arial, sans-serif;
@@ -57,6 +57,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 
 }
 
@@ -176,20 +177,78 @@
     align-items: center;
 }
 
+
 .forWho__img {
     width: 150px;
     height: 150px;
     object-fit: contain;
+    object-position: bottom;
 }
 
 .forWho__text {
     text-align: center;
+}
 
+.whyNeed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.whyNeed__title {
+    margin: 50px 0 30px 0;
+    text-align: center;
+    font-size: 35px;
+}
+
+.whyNeed__subtitle {
+    margin: 0 0 20px 0;
+}
+
+.whyNeed__card {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: black;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px grey;
+    width: 80%;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    .whyNeed__card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.whyNeed__photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.whyNeed__text-container {
+    margin: 30px;
+}
+
+.whyNeed__name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 0;
+}
+
+.whyNeed__text {
+    margin: 20px 0 0 0;
 }
 
 .signIn {
     width: 60%;
-    margin: 80px auto 20px auto;
+    margin: 50px auto 0px auto;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -200,7 +259,7 @@
 }
 
 .signIn__title {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     margin: 0px 0 20px 0;
     padding: 0;
@@ -221,12 +280,10 @@
     margin: 20px 0 0 0;
 }
 
-
-
 .footer {
     display: flex;
     width: 92%;
-    margin: 92px 48px 0 48px;
+    margin: 50px 48px 0 48px;
     padding-bottom: 24px;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -234,21 +291,21 @@
 
 @media screen and (max-width: 1140px) {
     .footer {
-        margin: 92px 48px 0 48px;
+        margin: 50px 48px 0 48px;
         padding-bottom: 24px;
     }
 }
 
 @media screen and (max-width: 984px) {
     .footer {
-        margin: 92px 24px 0 24px;
+        margin: 50px 24px 0 24px;
         padding-bottom: 24px;
     }
 }
 
 @media screen and (max-width: 568px) {
     .footer {
-        margin: 92px 118px 0 16px;
+        margin: 50px 118px 0 16px;
         padding-bottom: 24px;
         flex-direction: column;
     }
