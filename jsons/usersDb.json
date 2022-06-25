@@ -1,0 +1,68 @@
+{
+    "users" : [
+        {
+            "id": 0,
+            "name": "Dima Nalik",
+            "gender": "male",
+            "age": "35",
+            "city": "London",
+            "email": "dima.nalik@v.com"
+        },
+        {
+            "id": 1,
+            "name": "John Debt",
+            "gender": "male",
+            "age": "45",
+            "city": "New York",
+            "email": "nomore@courts.com"
+        },
+        {
+            "id": 2,
+            "name": "Iliy Prus",
+            "gender": "male",
+            "age": "32",
+            "city": "Basel",
+            "email": "biggibig@mail.com"
+        },
+        {
+            "id": 3,
+            "name": "Yri Hova",
+            "gender": "male",
+            "age": "28",
+            "city": "Barcelona",
+            "email": "pappa@house.com"
+        },
+        {
+            "id": 4,
+            "name": "Vitia Ak",
+            "gender": "male",
+            "age": "33",
+            "city": "Tokyo",
+            "email": "fire47@gmail.com"
+        },
+        {
+            "id": 5,
+            "name": "Nick Bask",
+            "gender": "male",
+            "age": "50",
+            "city": "Istambul",
+            "email": "goldencup@mail.com"
+        },
+        {
+            "id": 6,
+            "name": "Fill Kir",
+            "gender": "male",
+            "age": "44",
+            "city": "Berlin",
+            "email": "trueman@mail.com"
+        },
+        {
+            "id": 7,
+            "name": "Alla Galk",
+            "gender": "female",
+            "age": "55",
+            "city": "Porto",
+            "email": "queen17@gmail.com"
+        }
+    ]
+}
