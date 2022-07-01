@@ -38,15 +38,26 @@
 }
 
 .header__link-lang {
-    font-size: 24px;
-    line-height: 1.17;
+    height: 100%;
+    font-size: 15px;
+    font-weight: bold;
     color: #FFFFFF;
     margin: 0 0 0 18px;
+    padding: 10px;
     text-decoration: none;
+    background-color: #8942D6;
+    border-radius: 20px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.header__link-lang:hover {
+    text-decoration: underline;
 }
 
 .header__logo {
-    width: 100px;
+    height: 35px;
+    object-fit: contain;
 }
 
 
