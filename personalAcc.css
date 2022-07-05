@@ -2,16 +2,16 @@
     background-color: #34C6CD ;
     min-width: 320px;
     max-width: 1920px;
-    margin: 0 auto;
-    padding: 0;
     font-family: 'Inter', Arial, sans-serif;
     color:#FFFFFF;
 }
 
 .header {
+    width: 100%;
     display: flex;
     padding: 28px 48px 0 48px;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 1140px) {
@@ -65,30 +65,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
 }
 
 .menu {
     margin: 20px auto 20px auto;
     display: flex;
     align-items: center;
-}
-
-.menu__link
- {
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.12;
-    color: black;
-    text-decoration: none;
-    margin: 0 18px 0 0;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: white;
-    width: 40%;
-    text-align: center;
-    box-shadow: 5px 5px 10px grey;
 }
 
 .menu__link:last-child {
@@ -146,14 +128,39 @@
 
 .profile__infoContainer {
     flex-grow: 1;
-    padding: 30px 40px
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+@media screen and (max-width: 800px) {
+    .profile__infoContainer {
+        align-items: center;
+    }
 }
 
 .profile__title {
-    margin: 0px 0 20px 0;
+    margin: 0px auto 10px auto;
     font-size: 25px;
     text-align: center;
 }
+
+.profile__editBtn {
+    margin: 0px auto 10px auto;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.12;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: white;
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+
 
 @media screen and (max-width: 800px) {
     .profile__header {
@@ -263,6 +270,134 @@
 
 .history__date {
     margin: 0;
+}
+
+
+.editPop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: none;
+}
+
+.editPop__form {
+    background-color: #FFFFFF;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 20px;
+    width: 65%;  
+    max-width: 500px;
+    position: relative;
+}
+
+.editPop__title {
+    text-align: center;
+    margin: 0;
+}
+
+.editPop__text {
+    margin: 10px 0px 5px;
+}
+
+.editPop__input {
+    border: 0;
+    margin: 0px 0 0;
+    padding: 5px 0;
+}
+
+.editPop__underline {
+    height: 1px;
+    background-color: grey;
+}
+
+.editPop__submitBtn {
+    margin: 30px auto 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #8942D6;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: 0;
+    width: 200px;
+}
+
+.editPop__cross {
+    position: absolute;
+    width: 25px;
+    top: -35px;
+    right: 0px;
+}
+
+.logoutPop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    
+    display: none;
+}
+
+.logoutPop__form {
+    background-color: #FFFFFF;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 20px;
+    width: 65%;  
+    max-width: 500px;
+    position: relative;
+    align-items: center;
+}
+
+.logoutPop__title {
+    margin: 0 0 30px;
+}
+
+.logoutPop__btnContainer {
+    display: flex;
+}
+
+.btnYes {
+    margin: 0 30px 0 0px;
+    background-color: #8942D6;
+    padding: 10px 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid #8942D6;
+}
+
+.btnNo {
+    background-color: white;
+    padding: 10px 30px;
+    color: black;
+    font-weight: bold;
+    border-radius: 20px; 
+    border: 2px solid grey;
+}
+
+.logoutPop__cross {
+    position: absolute;
+    width: 25px;
+    top: -35px;
+    right: 0px;
 }
 
 .footer {

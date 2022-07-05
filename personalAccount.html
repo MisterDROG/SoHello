@@ -6,19 +6,20 @@
     <link rel="stylesheet" href="./vendor/normalize.css">
     <link rel="stylesheet" href="./personalAcc.css">
     <script src="./scripts/personalAcc.js" defer></script>
-    <link rel="icon" href="">
+    <link rel="icon" href="./images/SO.png">
     <title>SoHello</title>
 
     
 </head>
 <body>
     <div class="page">
-        <header class="header">
-        <img class="header__logo" src="./images/SoHelloLogo.jpg" alt="Лого">
-        <div class="header__langs">
-          <a class="header__link-lang" href="#">Log Out</a>
+
+        <div class="header">
+            <img class="header__logo" src="./images/SoHelloLogo.jpg" alt="Лого">
+            <div class="header__langs">
+                <a class="header__link-lang" href="#">Log Out</a>
+            </div>
         </div>
-        </header>
 
         <div class="main">
 
@@ -30,6 +31,7 @@
                 <img class="profile__photo" src="./images/dmitriy-malikov.jpg" alt="profile photo">
                 <div class="profile__infoContainer">
                     <h2 class="profile__title">My Profile</h2>
+                    <div class="profile__editBtn">Edit Profile</div>
                     <p class="profile__header">Name:</p>
                     <p class="profile__info" id ="nameAcc">Dima Nalik</p>
                     <p class="profile__header">Mail:</p>
@@ -38,13 +40,7 @@
                     <p class="profile__info">Music</p>
                     <p class="profile__header">Three things about me:</p>
                     <p class="profile__info">"Musician. Started in the last millennium. Love strong rap music. Was the presenter of the children's show on television."</p>
-                    
                 </div>
-            </section>
-
-            <section class="menu">
-                <a href="#" class="menu__link">Update</a>
-                <a href="#" class="menu__link">Edit</a>
             </section>
 
             <section class="meeting">
@@ -92,10 +88,36 @@
                     </div>
                 </div>
             </section>
+
+            <section class="editPop">
+                <form class="editPop__form">
+                    <h2 class="editPop__title">Edit Profile</h2>
+                    <p class="editPop__text">Name:</p>
+                    <input class="editPop__input input_type_Name" type="text">
+                    <div class="editPop__underline"></div>
+                    <p class="editPop__text">Interest:</p>
+                    <input class="editPop__input input_type_Interest" type="text">
+                    <div class="editPop__underline"></div>
+                    <p class="editPop__text">Three things about me:</p>
+                    <input class="editPop__input input_type_Threethings" type="text">
+                    <div class="editPop__underline"></div>
+                    <button class="editPop__submitBtn" type="submit">Save</button>
+                    <img class="editPop__cross" src="./images/CloseIcon.png" alt="cross">
+                </form>
+            </section>
+
+            <section class="logoutPop">
+                <div class="logoutPop__form">
+                    <h2 class="logoutPop__title">So you want to log out?</h2>
+                    <div class="logoutPop__btnContainer">
+                        <div class="logoutPop__btn btnYes">Yes</div>
+                        <div class="logoutPop__btn btnNo">No</div>
+                    </div>
+                    <img class="logoutPop__cross" src="./images/CloseIcon.png" alt="cross">
+                </div>
+            </section>
             
         </div>
-
-        
 
         <footer class="footer">
             <nav class="footer__links">
