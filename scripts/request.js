@@ -16,11 +16,9 @@ let gettingLogin
 
 signInCheckbox.addEventListener("change", (evt) => {
     if (evt.target.checked) {
-        console.log(evt.target.checked)
         formRegistration.style.display = "flex";
         formSignIn.style.display = "none";
     } else {
-        console.log(evt.target.checked)
         formSignIn.style.display = "flex";
         formRegistration.style.display = "none";
     }

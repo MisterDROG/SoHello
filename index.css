@@ -65,9 +65,11 @@ html {
     object-fit: contain;
 }
 
-/* .main {
+.main {
     display: flex;
-} */
+    align-items: center;
+    flex-direction: column;
+}
 
 .lead {
     display: flex;
@@ -269,8 +271,9 @@ html {
 
 .signIn {
     width: 60%;
-    margin: 50px auto 0px auto;
-    padding: 30px;
+    min-width: 250px;
+    margin: 50px 20px 0px 20px;
+    padding: 30px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -305,27 +308,18 @@ html {
 .signIn__switcher {
     position: relative;
     display: inline-block;
-    width: 100px;
+    width: 70px;
     height: 20px;
+    outline: none;
+    background-color: #34C6CD;
 }
 
 .signIn__checkbox {
     display: none;
 }
 
-.signIn__slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #34C6CD;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
 
-.signIn__slider:before {
+.signIn__slider-point {
     position: absolute;
     content: "";
     height: 30px;
@@ -334,18 +328,10 @@ html {
     bottom: -5px;
     background-color: white;
     transition: .4s;
-    /* background-image: url(./images/Arrow.png); */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-.signIn__checkbox:checked + .signIn__slider {
-    background-color: #34C6CD;
 }
 
-.signIn__checkbox:checked + .signIn__slider:before {
-    transform: translateX(60px)   /* rotate(180deg); */
+.signIn__checkbox:checked + .signIn__slider-point {
+    transform: translateX(30px);
 }
 
 .signIn__form {
