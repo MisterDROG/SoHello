@@ -292,12 +292,14 @@ html {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    margin: 30px 0 15px 0;
 }
 
 .signIn__text-switchers {
     width: 70px;
     text-align: center;
+    margin: 0 10px;
 }
 
 .signIn__switcher {
@@ -346,6 +348,12 @@ html {
     transform: translateX(60px)   /* rotate(180deg); */
 }
 
+.signIn__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .signIn__subTitle {
     margin: 20px 0 10px 0;
     padding: 0; 
@@ -371,6 +379,41 @@ html {
 }
 
 .signIn__button:hover {
+    background-color: #8942D6;
+    color: white;
+}
+
+.register__form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register__subTitle {
+    margin: 20px 0 10px 0;
+    padding: 0; 
+}
+
+.register__input {
+    border: 0;
+}
+
+.register__button {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.12;
+    color: black;
+    text-decoration: none;
+    margin: 20px 0 0 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.register__button:hover {
     background-color: #8942D6;
     color: white;
 }

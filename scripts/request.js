@@ -1,8 +1,10 @@
 const signInLogin = document.querySelector('.signIn__input_type_login')
 const signInPaaaword = document.getElementById('signIn__password')
-const formRegistratiom = document.querySelector('.signIn')
+const formSignIn = document.querySelector('.signIn__form')
+const formRegistration = document.querySelector('.register__form')
 const loginPlace = document.querySelector('.signIn__output_type_password')
 const setButton = document.getElementById('button__set')
+const signInCheckbox = document.querySelector('.signIn__checkbox')
 
 let gettingLogin
 
@@ -12,7 +14,19 @@ let gettingLogin
 //     loginPlace.value = gettingLogin
 // })
 
-formRegistratiom.addEventListener('submit', (evt) => {
+signInCheckbox.addEventListener("change", (evt) => {
+    if (evt.target.checked) {
+        console.log(evt.target.checked)
+        formRegistration.style.display = "flex";
+        formSignIn.style.display = "none";
+    } else {
+        console.log(evt.target.checked)
+        formSignIn.style.display = "flex";
+        formRegistration.style.display = "none";
+    }
+})
+
+formSignIn.addEventListener('submit', (evt) => {
     evt.preventDefault()
     return fetch('https://sohellotest-default-rtdb.firebaseio.com/users.json')
     .then((response) => {

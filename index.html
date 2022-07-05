@@ -85,7 +85,7 @@
             
             </section>
 
-            <form class = "signIn" id="top">
+            <div class = "signIn" id="top">
                 <p class="signIn__title">So it's best time to:</p>
                 <div class = "signIn__switch">
                     <p class="signIn__text-switchers">Login</p>
@@ -95,17 +95,23 @@
                     </label>
                     <p class="signIn__text-switchers">Register</p>
                 </div>
-                <p class="signIn__subTitle" id = "signIn__login">Login</p>
-                <input type = "text" class = "signIn__input signIn__input_type_login">
-                <p class="signIn__subTitle" id = "signIn__password">Password</p>
-                <input type = "text" class = "signIn__input signIn__input_type_password">
-                <button type = "submit" class = "signIn__button">Sign In</button>
-                <!-- <p class="signIn__subTitle"></p>
-                <input type = "text" class = "signIn__input signIn__output_type_password" placeholder="Here wil be login">
-                <p class="signIn__subTitle"></p>
-                <input type = "text" class = "signIn__input signIn__output_type_password" placeholder="Here wil be password">
-                <button type = "submit" class = "signIn__button" id="button__set">Set</button> -->
-            </form>
+                <form class="signIn__form">
+                    <p class="signIn__subTitle" id = "signIn__login">Login</p>
+                    <input type = "text" class = "signIn__input signIn__input_type_login">
+                    <p class="signIn__subTitle" id = "signIn__password">Password</p>
+                    <input type = "text" class = "signIn__input signIn__input_type_password">
+                    <button type = "submit" class = "signIn__button">Sign In</button>
+                </form>
+                <form class="register__form">
+                    <p class="register__subTitle" id = "register__login">Login</p>
+                    <input type = "text" class = "register__input register__input_type_login">
+                    <p class="register__subTitle" id = "register__password">Password</p>
+                    <input type = "text" class = "register__input register__input_type_password">
+                    <p class="register__subTitle" id = "register__password">Confirm password</p>
+                    <input type = "text" class = "register__input register__input_type_password">
+                    <button type = "submit" class = "register__button">Register</button>
+                </form>
+            </в>
 
         </main>
 
