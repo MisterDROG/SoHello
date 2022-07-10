@@ -330,9 +330,10 @@ html {
     transition: .4s;
 }
 
-.signIn__checkbox:checked + .signIn__slider-point {
+.signIn__checkbox:checked ~ .signIn__slider-point {
     transform: translateX(30px);
 }
+
 
 .signIn__form {
     display: flex;
