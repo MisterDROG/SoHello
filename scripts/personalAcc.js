@@ -11,6 +11,15 @@ const profileEditForm = document.querySelector('.editPop')
 const profileEditExitBtn = document.querySelector('.editPop__cross')
 
 
+class ApiPersonal {
+    constructor(options) {
+
+    }
+
+}
+
+
+
 logOutBtn.addEventListener('click', () => {
     logOutpopUp.style.display = 'flex';
 })

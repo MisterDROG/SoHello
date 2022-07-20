@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./vendor/normalize.css">
     <link rel="stylesheet" href="./index.css">
-    <script src="./scripts/request.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
     <link rel="icon" href="./images/SO.png">
     <title>SoHello</title>
 
@@ -32,7 +32,7 @@
                 <div class="aboutUs__container">
                     <h2 class="aboutUs__title">Who are we for you?</h2>
                     <p class="aboutUs__text text_type_you"><span class="aboutUs__span">YOU</span> - someone who is looking for new mates.</p>
-                    <p class="aboutUs__text text_type_we"><span class="aboutUs__span">WE</span> - simple application that will find it for you.</p>
+                    <p class="aboutUs__text text_type_we"><span class="aboutUs__span">WE</span> - simple application that will find them for you.</p>
                     <p class="aboutUs__text text_type_you"><span class="aboutUs__span">YOU</span> - give us your mail and your interest.</p>
                     <p class="aboutUs__text text_type_we"><span class="aboutUs__span">WE</span> - give you a new partner every two weeks.</p>
                     <p class="aboutUs__text text_type_you"><span class="aboutUs__span">YOU</span> - call up and communicate.</p>
@@ -88,7 +88,7 @@
             <div class = "signIn" id="top">
                 <p class="signIn__title">So it's best time to:</p>
                 <div class = "signIn__switch">
-                    <p class="signIn__text-switchers">Login</p>
+                    <p class="signIn__text-switchers">Sign In</p>
                     <label class="signIn__switcher">
                         <input type="checkbox" class = "signIn__checkbox">
                         <div class="signIn__slider"></div>
@@ -99,24 +99,50 @@
                 <form class="signIn__form">
                     <p class="signIn__subTitle" id = "signIn__login">Login</p>
                     <input type = "text" class = "signIn__input signIn__input_type_login">
+                    <p class="signIn__label" id="signLabelLogin"></p>
                     <p class="signIn__subTitle" id = "signIn__password">Password</p>
                     <input type = "text" class = "signIn__input signIn__input_type_password">
+                    <p class="signIn__label" id="signLabelPass"></p>
                     <button type = "submit" class = "signIn__button">Sign In</button>
                 </form>
                 <form class="register__form">
-                    <p class="register__subTitle" id = "register__login">Login</p>
+                    <p class="register__subTitle" id = "register__name">Your name</p>
+                    <input type = "text" class = "register__input register__input_type_name">
+                    <p class="register__label" id="regLabelName"></p>
+                    <p class="register__subTitle" id = "register__interest">Your interest</p>
+                    <!-- <input type = "text" class = "register__input register__input_type_interest"> -->
+                    <div class="register__dropdown">
+                        <button class="register__dropbtn">
+                            <p class ="register__dropbtnText">Choose interest</p>
+                            <div class="register__arrowBox"></div>
+                        </button>
+                        <div class="register__dropdown-content">
+                          <p class="register__variant">Music</p>
+                          <p class="register__variant">Art</p>
+                          <p class="register__variant">Nomads</p>
+                          <p class="register__variant">Programming</p>
+                          <p class="register__variant">Gamedev</p>
+                        </div>
+                      </div>
+                    <p class="register__label" id="regInterest"></p>
+                    <p class="register__subTitle" id = "register__things">Three things about you</p>
+                    <textarea class = "register__textarea register__textarea_type_things"></textarea>
+                    <p class="register__label" id="regThings"></p>
+                    <p class="register__subTitle" id = "register__login">Email</p>
                     <input type = "text" class = "register__input register__input_type_login">
-                    <p class="register__subTitle" id = "register__password">Password</p>
+                    <p class="register__label" id="regLabelLogin"></p>
+                    <!-- <p class="register__subTitle" id = "register__password">Password</p>
                     <input type = "text" class = "register__input register__input_type_password">
+                    <p class="register__label" id="regLabelPass"></p>
                     <p class="register__subTitle" id = "register__password">Confirm password</p>
-                    <input type = "text" class = "register__input register__input_type_password">
+                    <input type = "text" class = "register__input register__input_type_passwordCheck">
+                    <p class="register__label" id="regLabelPassConfirm"></p> -->
+                    
                     <button type = "submit" class = "register__button">Register</button>
                 </form>
             </div>
 
         </main>
-
-        
 
         <footer class="footer">
             <nav class="footer__links">
