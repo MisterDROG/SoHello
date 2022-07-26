@@ -1,3 +1,5 @@
+@import url(../vendor/normalize.css);
+
 html {
     scroll-behavior: smooth;
 }
@@ -8,7 +10,7 @@ html {
     max-width: 1920px;
     margin: 0 auto;
     padding: 0;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     color:#FFFFFF;
 }
 
@@ -149,10 +151,6 @@ html {
     margin: 20px;
     text-align: center;
     justify-content: center;
-}
-
-.aboutUs__text {
-
 }
 
 .text_type_you {
@@ -470,7 +468,7 @@ html {
 }
 
 .register__arrowBox{
-    background-image: url(./images/ArrowBox.png);
+    background-image: url(../images/ArrowBox.png);
     width: 20px;
     height: 20px;
     background-size: contain;
@@ -515,7 +513,7 @@ html {
 @media screen and (max-width: 568px) {
     .footer__links {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
     }
 }
 

@@ -1,3 +1,7 @@
+import '../vendor/normalize.css'
+import '../pages/index.css'
+import { ApiMain } from './api'
+
 const signInLogin = document.querySelector('.signIn__input_type_login')
 const signInPaaaword = document.getElementById('signIn__password')
 const formSignIn = document.querySelector('.signIn__form')
@@ -20,37 +24,64 @@ const dropdownContent = document.querySelector('.register__dropdown-content')
 const dropbtnText = document.querySelector('.register__dropbtnText')
 
 
-
-class ApiMain {
-    constructor(url) {
-        this.apiUrl = url
-    }
-
-    signIn() {
-        console.log('signIn')
-    }
-
-    register(login) {
-        console.log('starting register...')
-        fetch (this.apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-              },
-            body: JSON.stringify({
-                // name: name.value,
-                // interest: interest.textContent,
-                // userCharacteristics: charcacter.value,
-                email: login.value,            
-            })
-        })
-        .then((res) => {console.log(res)})
-        .then((res) => {console.log('finished register')})
-        .catch(() => {console.log('network problems')})
-    }
-}
-
 const api = new ApiMain('http://localhost:8080/v1/user')
+
+signInCheckbox.addEventListener("change", (evt) => {
+    if (evt.target.checked) {
+        formRegistration.style.display = "flex";
+        formSignIn.style.display = "none";
+    } else {
+        formSignIn.style.display = "flex";
+        formRegistration.style.display = "none";
+    }
+})
+
+formRegistration.addEventListener('submit', (evt) => {
+    evt.preventDefault()
+    api.register(regLogin)
+})
+
+formSignIn.addEventListener('submit', (evt) => {
+    evt.preventDefault()
+    console.log('starting signIN...')
+    return fetch('http://localhost:8080/v1/user')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+        console.log('finished signIN')
+        })
+})
+
+dropbtn.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    console.log('click')
+    console.log(dropdownContent.style.display)
+    if (dropdownContent.style.display == "none" || dropdownContent.style.display == "") {
+        dropdownContent.style.display = "block"
+    } else {
+        dropdownContent.style.display = "none"
+    }   
+    console.log(dropdownContent.style.display)
+})
+
+dropdownContent.addEventListener('click', (evt) => {
+    dropbtnText.textContent = evt.target.textContent
+    dropbtnText.style.color = 'black'
+    dropdownContent.style.display = "none"
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 // formRegistration.addEventListener('submit', (evt) => {
@@ -98,49 +129,3 @@ const api = new ApiMain('http://localhost:8080/v1/user')
 //     console.log(obj)
 //     return obj
 // }
-
-signInCheckbox.addEventListener("change", (evt) => {
-    if (evt.target.checked) {
-        formRegistration.style.display = "flex";
-        formSignIn.style.display = "none";
-    } else {
-        formSignIn.style.display = "flex";
-        formRegistration.style.display = "none";
-    }
-})
-
-formRegistration.addEventListener('submit', (evt) => {
-    evt.preventDefault()
-    api.register(regLogin)
-})
-
-formSignIn.addEventListener('submit', (evt) => {
-    evt.preventDefault()
-    console.log('starting signIN...')
-    return fetch('http://localhost:8080/v1/user')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
-        console.log('finished signIN')
-        })
-})
-
-dropbtn.addEventListener('click', (evt) => {
-    evt.preventDefault()
-    console.log('click')
-    console.log(dropdownContent.style.display)
-    if (dropdownContent.style.display == "none" || dropdownContent.style.display == "") {
-        dropdownContent.style.display = "block"
-    } else {
-        dropdownContent.style.display = "none"
-    }   
-    console.log(dropdownContent.style.display)
-})
-
-dropdownContent.addEventListener('click', (evt) => {
-    dropbtnText.textContent = evt.target.textContent
-    dropbtnText.style.color = 'black'
-    dropdownContent.style.display = "none"
-})

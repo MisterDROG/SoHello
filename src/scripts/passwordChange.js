@@ -1,4 +1,5 @@
-
+import '../vendor/normalize.css'
+import '../pages/passwordChange.css'
 
 
 class Validation {

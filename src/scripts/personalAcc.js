@@ -1,3 +1,7 @@
+import '../vendor/normalize.css'
+import '../pages/personalAcc.css'
+
+
 const nameAcc = document.querySelector('#nameAcc')
 const emailAcc = document.querySelector('#emailAcc')
 const logOutBtn = document.querySelector('.header__link-lang')

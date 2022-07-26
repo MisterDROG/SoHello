@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./vendor/normalize.css">
-    <link rel="stylesheet" href="./personalAcc.css">
-    <script src="./scripts/personalAcc.js" defer></script>
-    <link rel="icon" href="./images/SO.png">
+    <link rel="icon" href="<%=require('./images/SO.png')%>">
     <title>SoHello</title>
 
     
@@ -15,7 +12,7 @@
     <div class="page">
 
         <div class="header">
-            <img class="header__logo" src="./images/SoHelloLogo.jpg" alt="Лого">
+            <img class="header__logo" src="<%=require('./images/SoHelloLogo.jpg')%>" alt="Лого">
             <div class="header__langs">
                 <a class="header__link-lang" href="#">Log Out</a>
             </div>
@@ -28,7 +25,7 @@
             </section>
 
             <section class="profile">
-                <img class="profile__photo" src="./images/dmitriy-malikov.jpg" alt="profile photo">
+                <img class="profile__photo" src="<%=require('./images/dmitriy-malikov.jpg')%>" alt="profile photo">
                 <div class="profile__infoContainer">
                     <h2 class="profile__title">My Profile</h2>
                     <div class="profile__editBtn">Edit Profile</div>
@@ -46,7 +43,7 @@
             <section class="meeting">
                 <h2 class="meeting__title">This week you meet:</h2>
                 <div class="meeting__container">
-                    <img class="meeting__photo" src ="./images/jonDebt.jpg" alt="meeting photo">
+                    <img class="meeting__photo" src="<%=require('./images/jonDebt.jpg')%>" alt="meeting photo">
                     <p class = "meeting__text">John Debt</p>
                     <p class = "meeting__text">nomore@courts.com</p>
                     <p class = "meeting__text">"Actor. I love playing bird characters. I liked Fantastic Beasts, but now I don't play wizards. Madonna and Eminem best choice.</p>
@@ -57,32 +54,32 @@
                 <h2 class="history__title">My mates history</h2>
                 <div class="history__grid">
                     <div class="history__card">
-                        <img class="history__photo" src="./images/ilia-prus.jpg" alt="history photo">
+                        <img class="history__photo" src="<%=require('./images/ilia-prus.jpg')%>" alt="history photo">
                         <h3 class="history__name">Iliy Prus</h3>
                         <p class="history__date">22.10.21</p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="./images/yri-hova.jpg" alt="history photo">
+                        <img class="history__photo" src="<%=require('./images/yri-hova.jpg')%>" alt="history photo">
                         <h3 class="history__name">Yri Hova</h3>
                         <p class="history__date">09.09.21</p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="./images/ak-vitia.jpg" alt="history photo">
+                        <img class="history__photo" src="<%=require('./images/ak-vitia.jpg')%>" alt="history photo">
                         <h3 class="history__name">Vitia Ak</h3>
                         <p class="history__date">17.08.21</p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="./images/nick-bask.jpg" alt="history photo">
+                        <img class="history__photo" src="<%=require('./images/nick-bask.jpg')%>" alt="history photo">
                         <h3 class="history__name">Nick Bask</h3>
                         <p class="history__date">05.07.21</p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="./images/fill-kir.jpg" alt="history photo">
+                        <img class="history__photo" src="<%=require('./images/fill-kir.jpg')%>" alt="history photo">
                         <h3 class="history__name">Fill Kir</h3>
                         <p class="history__date">27.07.21</p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="./images/Alla-Galk.jpg" alt="history photo">
+                        <img class="history__photo" src="<%=require('./images/Alla-Galk.jpg')%>" alt="history photo">
                         <h3 class="history__name">Alla Galk</h3>
                         <p class="history__date">14.06.21</p>
                     </div>
@@ -102,7 +99,7 @@
                     <input class="editPop__input input_type_Threethings" type="text">
                     <div class="editPop__underline"></div>
                     <button class="editPop__submitBtn" type="submit">Save</button>
-                    <img class="editPop__cross" src="./images/CloseIcon.png" alt="cross">
+                    <img class="editPop__cross" src="<%=require('./images/CloseIcon.png')%>" alt="cross">
                 </form>
             </section>
 
@@ -113,7 +110,7 @@
                         <button class="logoutPop__btnYes" type="submit">Yes</button>
                         <div class="logoutPop__btnNo">No</div>
                     </div>
-                    <img class="logoutPop__cross" src="./images/CloseIcon.png" alt="cross">
+                    <img class="logoutPop__cross" src="<%=require('./images/CloseIcon.png')%>" alt="cross">
                 </form>
             </section>
             
