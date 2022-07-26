@@ -1,6 +1,6 @@
 import '../vendor/normalize.css'
 import '../pages/index.css'
-import { ApiMain } from './api'
+import { Api } from './api'
 
 const signInLogin = document.querySelector('.signIn__input_type_login')
 const signInPaaaword = document.getElementById('signIn__password')
@@ -15,7 +15,7 @@ const formRegistration = document.querySelector('.register__form')
 const regLogin = document.querySelector('.register__input_type_login')
 const regPassword = document.querySelector('.register__input_type_password')
 const regPasswordCheck = document.querySelector('.register__input_type_passwordCheck')
-const regLabelLogin = document.getElementById('regLabelLogin')
+const regLabelLogin = document.getElementById('regLabelLogin') 
 const regLabelPass = document.getElementById('regLabelPass')
 const regLabelPassConfirm = document.getElementById('regLabelPassConfirm')
 
@@ -23,8 +23,10 @@ const dropbtn = document.querySelector('.register__dropbtn')
 const dropdownContent = document.querySelector('.register__dropdown-content')
 const dropbtnText = document.querySelector('.register__dropbtnText')
 
+const gthy = document.querySelector('.signIn__title')
 
-const api = new ApiMain('http://localhost:8080/v1/user')
+
+const api = new Api()
 
 signInCheckbox.addEventListener("change", (evt) => {
     if (evt.target.checked) {
@@ -34,24 +36,6 @@ signInCheckbox.addEventListener("change", (evt) => {
         formSignIn.style.display = "flex";
         formRegistration.style.display = "none";
     }
-})
-
-formRegistration.addEventListener('submit', (evt) => {
-    evt.preventDefault()
-    api.register(regLogin)
-})
-
-formSignIn.addEventListener('submit', (evt) => {
-    evt.preventDefault()
-    console.log('starting signIN...')
-    return fetch('http://localhost:8080/v1/user')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
-        console.log('finished signIN')
-        })
 })
 
 dropbtn.addEventListener('click', (evt) => {
@@ -71,6 +55,28 @@ dropdownContent.addEventListener('click', (evt) => {
     dropbtnText.style.color = 'black'
     dropdownContent.style.display = "none"
 })
+
+
+
+formRegistration.addEventListener('submit', (evt) => {
+    evt.preventDefault()
+    api.createUser(regLogin, regLabelLogin)
+})
+
+formSignIn.addEventListener('submit', (evt) => {
+    evt.preventDefault()
+    console.log('starting signIN...')
+    return fetch('http://localhost:8080/v1/user')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+        console.log('finished signIN')
+        })
+})
+
+
 
 
 
