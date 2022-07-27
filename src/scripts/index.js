@@ -2,10 +2,9 @@ import '../vendor/normalize.css'
 import '../pages/index.css'
 import { Api } from './api'
 
-const signInLogin = document.querySelector('.signIn__input_type_login')
-const signInPaaaword = document.getElementById('signIn__password')
 const formSignIn = document.querySelector('.signIn__form')
-const loginPlace = document.querySelector('.signIn__output_type_password')
+const signInLogin = document.querySelector('.signIn__input_type_login')
+const signInPassword = document.querySelector('.signIn__input_type_password')
 const setButton = document.getElementById('button__set')
 const signInCheckbox = document.querySelector('.signIn__checkbox')
 const signLabelLogin = document.getElementById('signLabelLogin')
@@ -65,15 +64,11 @@ formRegistration.addEventListener('submit', (evt) => {
 
 formSignIn.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    console.log('starting signIN...')
-    return fetch('http://localhost:8080/v1/user')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
-        console.log('finished signIN')
-        })
+    // api.getUsers()
+    // api.getUser(2)
+    const userEmail = signInLogin.value
+    const userPassword = signInPassword.value
+    signIn(userEmail, userPassword)
 })
 
 
@@ -126,12 +121,3 @@ formSignIn.addEventListener('submit', (evt) => {
 // })
 
 
-// function userSearch (data, check) {
-//     let obj = {}
-//     data.forEach((user) => {
-//         if (user.email == check)
-//         obj = user
-//     })
-//     console.log(obj)
-//     return obj
-// }
