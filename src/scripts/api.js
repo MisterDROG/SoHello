@@ -151,10 +151,11 @@ export class Api {
         })
     } 
 
-    logOut(token) {   
+    logOut() {   
+        const tokenUser = JSON.parse(localStorage.getItem('userData')).token
         fetch (`http://localhost:8081/api/v1/logout`, {
             headers: {
-                'Authorization': `Bearer <${token}>`,
+                'Authorization': `Bearer <${tokenUser}>`,
             }
         })
         .then((res) => {
@@ -163,13 +164,18 @@ export class Api {
             }
             return Promise.reject(`Server error: ${res.status}`)
         })
-        .then((res) => {console.log(res)})
+        .then((res) => {
+            console.log(res)
+            localStorage.clear()
+            window.open('../index.html', '_self')
+        })
         .catch((error) => {
             console.log(error)
         })
     } 
 
-    refreshToken(userRefreshToken) {      
+    refreshToken() {  
+        const userRefreshToken = JSON.parse(localStorage.getItem('userData')).refreshToken    
         fetch (`http://localhost:8081/api/v1/refreshToken`, {
             method: 'PUT',
             headers: {

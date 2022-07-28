@@ -22,10 +22,7 @@ const dropbtn = document.querySelector('.register__dropbtn')
 const dropdownContent = document.querySelector('.register__dropdown-content')
 const dropbtnText = document.querySelector('.register__dropbtnText')
 
-const gthy = document.querySelector('.signIn__title')
-
-
-const api = new Api()
+const apiIndex = new Api()
 
 signInCheckbox.addEventListener("change", (evt) => {
     if (evt.target.checked) {
@@ -55,20 +52,18 @@ dropdownContent.addEventListener('click', (evt) => {
     dropdownContent.style.display = "none"
 })
 
-
-
 formRegistration.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    api.createUser(regLogin, regLabelLogin)
+    apiIndex.createUser(regLogin, regLabelLogin)
 })
 
 formSignIn.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    // api.getUsers()
-    // api.getUser(2)
+    // apiIndex.getUsers()
+    // apiIndex.getUser(2)
     const userEmail = signInLogin.value
     const userPassword = signInPassword.value
-    signIn(userEmail, userPassword)
+    apiIndex.signIn(userEmail, userPassword)
 })
 
 
