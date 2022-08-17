@@ -36,6 +36,7 @@ logOutBtn.addEventListener('click', () => {
 logOutForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     logOutpopUp.style.display = 'none';
+    let token = JSON.parse(localStorage.getItem('userData')).token
     apiPA.logOut(token)
 })
 

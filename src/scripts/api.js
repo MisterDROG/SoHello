@@ -85,6 +85,13 @@ export class Api {
                 userId: res.id
             }
             localStorage.setItem('userId', JSON.stringify(userId))
+        })
+        .then(() => {
+            const id = JSON.parse(localStorage.getItem('userId')).userId
+            this.userIsActive(login.value, id)
+        })
+        .then((res) => {
+            console.log(res)
             window.open('../passwordChange.html', '_self')
         })
         .catch((error) => {
@@ -127,6 +134,7 @@ export class Api {
     signIn(userEmail, password) {   
         const base = new Hashes.SHA512().b64(password)     
         fetch (`http://localhost:8081/api/v1/login`, {
+            method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
             },
@@ -154,8 +162,9 @@ export class Api {
     logOut() {   
         const tokenUser = JSON.parse(localStorage.getItem('userData')).token
         fetch (`http://localhost:8081/api/v1/logout`, {
+            method: 'POST',
             headers: {
-                'Authorization': `Bearer <${tokenUser}>`,
+                'Authorization': `Bearer ${tokenUser}`,
             }
         })
         .then((res) => {
