@@ -5,7 +5,7 @@ export class Api {
     }
 
     getUsers() {
-        return fetch(`http://localhost:8080/v1/user`)
+        return fetch(`http://localhost:8090/api/user`)
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -21,7 +21,7 @@ export class Api {
     }
 
     getUser(userId) {
-        return fetch(`http://localhost:8080/v1/user/${userId}`)
+        return fetch(`http://localhost:8090/api/user/${userId}`)
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -37,7 +37,7 @@ export class Api {
     }
 
     userIsActive(userEmail, userId) {      
-        fetch (`http://localhost:8080/v1/user/${userId}`, {
+        fetch (`http://localhost:8090/api/user/${userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type' : 'application/json'
@@ -61,10 +61,11 @@ export class Api {
 
     createUser(login, errField) {
         errField.textContent = ''
-        fetch ('http://localhost:8080/v1/user', {
+        fetch ('http://localhost:8090/register', {
             method: 'POST',
+            // mode: 'no-cors',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
               },
             body: JSON.stringify({
                 // name: name.value,
@@ -105,7 +106,7 @@ export class Api {
         const gotUserId = JSON.parse(localStorage.getItem('userId')).userId
         console.log('User ID: ', gotUserId)
         const base = new Hashes.SHA512().b64(password)        
-        fetch (`http://localhost:8081/api/v1/user/${gotUserId}/password`, {
+        fetch (`http://localhost:8090/user/${gotUserId}/password`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -133,7 +134,7 @@ export class Api {
 
     signIn(userEmail, password) {   
         const base = new Hashes.SHA512().b64(password)     
-        fetch (`http://localhost:8081/api/v1/login`, {
+        fetch (`http://localhost:8090/login`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -161,7 +162,7 @@ export class Api {
 
     logOut() {   
         const tokenUser = JSON.parse(localStorage.getItem('userData')).token
-        fetch (`http://localhost:8081/api/v1/logout`, {
+        fetch (`http://localhost:8090/logout`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${tokenUser}`,
@@ -185,7 +186,7 @@ export class Api {
 
     refreshToken() {  
         const userRefreshToken = JSON.parse(localStorage.getItem('userData')).refreshToken    
-        fetch (`http://localhost:8081/api/v1/refreshToken`, {
+        fetch (`http://localhost:8090/refreshToken`, {
             method: 'PUT',
             headers: {
                 'Content-Type' : 'application/json'
