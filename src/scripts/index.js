@@ -1,22 +1,19 @@
 import '../vendor/normalize.css'
 import '../pages/index.css'
-import { Api } from './api'
+import { Api } from './apiAuth'
 
 const formSignIn = document.querySelector('.signIn__form')
 const signInLogin = document.querySelector('.signIn__input_type_login')
 const signInPassword = document.querySelector('.signIn__input_type_password')
-const setButton = document.getElementById('button__set')
 const signInCheckbox = document.querySelector('.signIn__checkbox')
-const signLabelLogin = document.getElementById('signLabelLogin')
-const signLabelPass = document.getElementById('signLabelPass')
+
+const signOutBtn = document.querySelector('.header__link-out')
+const signCheck = document.querySelector('.header__link-check')
 
 const formRegistration = document.querySelector('.register__form')
 const regLogin = document.querySelector('.register__input_type_login')
-const regPassword = document.querySelector('.register__input_type_password')
-const regPasswordCheck = document.querySelector('.register__input_type_passwordCheck')
 const regLabelLogin = document.getElementById('regLabelLogin') 
-const regLabelPass = document.getElementById('regLabelPass')
-const regLabelPassConfirm = document.getElementById('regLabelPassConfirm')
+const regPassword = document.querySelector('.register__input_type_password')
 
 const dropbtn = document.querySelector('.register__dropbtn')
 const dropdownContent = document.querySelector('.register__dropdown-content')
@@ -24,6 +21,7 @@ const dropbtnText = document.querySelector('.register__dropbtnText')
 
 const apiIndex = new Api()
 
+//switcher for auth/login
 signInCheckbox.addEventListener("change", (evt) => {
     if (evt.target.checked) {
         formRegistration.style.display = "flex";
@@ -34,36 +32,44 @@ signInCheckbox.addEventListener("change", (evt) => {
     }
 })
 
+//open/close dropdown menu with interests
 dropbtn.addEventListener('click', (evt) => {
     evt.preventDefault()
-    console.log('click')
-    console.log(dropdownContent.style.display)
     if (dropdownContent.style.display == "none" || dropdownContent.style.display == "") {
         dropdownContent.style.display = "block"
     } else {
         dropdownContent.style.display = "none"
     }   
-    console.log(dropdownContent.style.display)
 })
 
+//put to placeholder result of dropdoen chouse of interest
 dropdownContent.addEventListener('click', (evt) => {
     dropbtnText.textContent = evt.target.textContent
     dropbtnText.style.color = 'black'
     dropdownContent.style.display = "none"
 })
 
+//register user
 formRegistration.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    apiIndex.createUser(regLogin, regLabelLogin)
+    apiIndex.createUser(regLogin.value, regPassword.value, regLabelLogin)
 })
 
+//login user
 formSignIn.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    // apiIndex.getUsers()
-    // apiIndex.getUser(2)
-    const userEmail = signInLogin.value
-    const userPassword = signInPassword.value
-    apiIndex.signIn(userEmail, userPassword)
+    apiIndex.signIn(signInLogin.value, signInPassword.value)
+})
+
+//sign out
+signOutBtn.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    apiIndex.signOut()
+})
+
+signCheck.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    apiIndex.checksignIn()
 })
 
 
