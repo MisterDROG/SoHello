@@ -1,7 +1,7 @@
 import '../vendor/normalize.css'
 import '../pages/passwordChange.css'
-import { Api } from './api'
-import { Validation } from './validation'
+import { Api } from './utils/api'
+import { Validation } from './utils/validation'
 
 const passwordForm = document.querySelector('.register__form')
 const passwordInput = document.querySelector('.register__input_type_password')

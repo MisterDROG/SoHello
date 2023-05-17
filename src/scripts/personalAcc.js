@@ -1,11 +1,13 @@
 import '../vendor/normalize.css'
 import '../pages/personalAcc.css'
-import { Api } from './apiAuth'
-import { auth } from './apiAuth'
+import { Api } from './utils/apiAuth'
+import renderFriendCard from './components/friendsCards'
 
-const nameAcc = document.querySelector('#nameAcc')
-const emailAcc = document.querySelector('#emailAcc')
-const interestAcc = document.querySelector('#interestAcc')
+const nameAcc = document.querySelector('#userName')
+const emailAcc = document.querySelector('#userEmail')
+const interestAcc = document.querySelector('#userInterest')
+const factsAcc = document.querySelector('#userFacts')
+
 const logOutBtn = document.querySelector('.header__link-lang')
 const logOutpopUp = document.querySelector('.logoutPop')
 const logOutForm = document.querySelector('.logoutPop__form')
@@ -16,27 +18,52 @@ const profileEditPopUp = document.querySelector('.editPop')
 const profileEditForm = document.querySelector('.editPop')
 const profileEditExitBtn = document.querySelector('.editPop__cross')
 
-// function getPersonalData() {
-//     let userAcc = JSON.parse(localStorage.getItem('userData'))
-//     nameAcc.textContent = userAcc.userId;
-//     emailAcc.textContent = userAcc.token;
-//     interestAcc.textContent = userAcc.refreshToken;
-//     // thingsAcc.textContent = userAcc.things;
-// }
+const historyGrid = document.querySelector('.history__grid')
+const meetingMain = document.querySelector('.meeting__include')
 
 const apiPA = new Api()
 
-async function insertUsersData() {
-    const usersFromDB = await apiPA.getUsersFromDB()
-    console.log('usersFromDB', usersFromDB)
-    // apiPA.getUsersFromDB().then((usersFromDB) => {
-    //     console.log('usersFromDB', usersFromDB)
-    // })
+async function getUsersData() {
+    if (!apiPA.checksignIn()) {
+        return await apiPA.getUsersFromDB()
+    } else {
+        return undefined
+    }
 }
 
+function getPersonalData(usersFromDB) {
+    if (usersFromDB) {
+        const userEmail = apiPA.checksignIn().email
+        emailAcc.textContent = userEmail;
 
-// getPersonalData()
-insertUsersData()
+        const indexOfUser = usersFromDB.findIndex((item) => item.email == userEmail)
+
+        nameAcc.textContent = usersFromDB[indexOfUser].name;
+        interestAcc.textContent = usersFromDB[indexOfUser].interest;
+        factsAcc.textContent = usersFromDB[indexOfUser].threeFacts;
+
+        usersFromDB.splice(indexOfUser,1)
+    }
+}
+
+function insertUsersData(usersFromDB) {
+    if (usersFromDB) {
+        meetingMain.innerHTML = '';
+        renderFriendCard(usersFromDB.splice((Math.floor(Math.random() * usersFromDB.length)),1)[0], meetingMain)
+        historyGrid.innerHTML = '';
+        for (let i=0; i <4 ; i++) {
+            renderFriendCard(usersFromDB.splice((Math.floor(Math.random() * usersFromDB.length)),1)[0], historyGrid)
+        }
+    }
+}
+
+async function insertDataToPage() {
+    let usersFromDB = await getUsersData() 
+    getPersonalData(usersFromDB)
+    insertUsersData(usersFromDB)
+}
+
+insertDataToPage()
 
 logOutBtn.addEventListener('click', () => {
     logOutpopUp.style.display = 'flex';
@@ -45,7 +72,6 @@ logOutBtn.addEventListener('click', () => {
 logOutForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     logOutpopUp.style.display = 'none';
-    // let token = JSON.parse(localStorage.getItem('userData')).token
     apiPA.signOut()
 })
 
@@ -61,6 +87,7 @@ profileEditBtn.addEventListener('click', () => {
 
 profileEditForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
+    
     profileEditPopUp.style.display = 'none';
 })
 

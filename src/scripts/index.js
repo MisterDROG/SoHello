@@ -1,6 +1,6 @@
 import '../vendor/normalize.css'
 import '../pages/index.css'
-import { Api } from './apiAuth'
+import { Api } from './utils/apiAuth'
 
 const formSignIn = document.querySelector('.signIn__form')
 const signInLogin = document.querySelector('.signIn__input_type_login')

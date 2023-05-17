@@ -4,15 +4,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
-    index: './src/scripts/index.js',
-    personalAcc: './src/scripts/personalAcc.js',
-    passwordChange: './src/scripts/passwordChange.js' 
+    index: './scripts/index.js',
+    personalAcc: './scripts/personalAcc.js',
+    passwordChange: './scripts/passwordChange.js' 
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: '',
+    assetModuleFilename: 'images/[name][ext]',
   },
   mode: 'development',
   devServer: {
@@ -23,13 +24,23 @@ module.exports = {
   },
   module: {
 
-    rules: [{
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: '/node_modules/'
+    rules: [
+      {
+        test: /\.html$/,
+        use: 'html-loader'
       },
       {
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
       {
@@ -48,21 +59,22 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.html',
+      template: './index.html',
       chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       filename: 'personalAccount.html',
-      template: './src/personalAccount.html',
+      template: './personalAccount.html',
       chunks: ['personalAcc']
     }),
     new HtmlWebpackPlugin({
       filename: 'passwordChange.html',
-      template: './src/passwordChange.html',
+      template: './passwordChange.html',
       chunks: ['passwordChange']
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
-
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].css',
+    }),
   ]
 }

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="<%=require('./images/SO.png')%>">
-    <title>SoHello</title>
+    <link rel="icon" href="./images/SO.png">
+    <title>Hello</title>
 
-    
+
 </head>
+
 <body>
     <div class="page">
 
         <div class="header">
-            <img class="header__logo" src="<%=require('./images/SoHelloLogo.jpg')%>" alt="Лого">
+            <img class="header__logo" src="./images/SoHelloLogo.jpg" alt="Лого">
             <div class="header__langs">
                 <a class="header__link-lang" href="#">Log Out</a>
             </div>
@@ -25,63 +27,79 @@
             </section>
 
             <section class="profile">
-                <img class="profile__photo" src="<%=require('./images/dmitriy-malikov.jpg')%>" alt="profile photo">
+                <img class="profile__photo" src="./images/img_persAcc/personMoc.png" alt="profile photo">
                 <div class="profile__infoContainer">
                     <h2 class="profile__title">My Profile</h2>
+                    <button class="history__button">Ready to meet</button>
                     <div class="profile__editBtn">Edit Profile</div>
                     <p class="profile__header">Name:</p>
-                    <p class="profile__info" id ="nameAcc">Dima Nalik</p>
+                    <p class="profile__info" id="userName">Rita Dart</p>
                     <p class="profile__header">Mail:</p>
-                    <p class="profile__info" id ="emailAcc">dima.nalik@v.com</p>
+                    <p class="profile__info" id="userEmail">rita.dartk@von.com</p>
                     <p class="profile__header">Interest:</p>
-                    <p class="profile__info" id ="interestAcc">Music</p>
+                    <p class="profile__info" id="userInterest">Music</p>
                     <p class="profile__header">Three things about me:</p>
-                    <p class="profile__info" id ="thingsAcc">"Musician. Started in the last millennium. Love strong rap music. Was the presenter of the children's show on television."</p>
+                    <p class="profile__info" id="userFacts">"Musician. Started 5 years ago. Love classic
+                        music. Was the presenter of the children's show on television."</p>
+                    <p class="profile__note">Note: If you are not ready to meet right now, just switch "Ready to meet"
+                        button. We won't show your profile to other users.
+                    </p>
                 </div>
             </section>
 
             <section class="meeting">
-                <h2 class="meeting__title">This week you meet:</h2>
-                <div class="meeting__container">
-                    <img class="meeting__photo" src="<%=require('./images/jonDebt.jpg')%>" alt="meeting photo">
-                    <p class = "meeting__text">John Debt</p>
-                    <p class = "meeting__text">nomore@courts.com</p>
-                    <p class = "meeting__text">"Actor. I love playing bird characters. I liked Fantastic Beasts, but now I don't play wizards. Madonna and Eminem best choice.</p>
+                <h2 class="meeting__title">New friend for you, connect with him by email:</h2>
+                <div class="meeting__include">
+                    <div class="history__card">
+                        <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
+                        <h3 class="history__name">Nick Debt</h3>
+                        <button class="history__button">Ready</button>
+                        <p class="history__text">nick_debt@gmai.com</p>
+                        <p class="history__text">"Music"</p>
+                        <p class="history__text">"Actor. I love playing bird characters. I liked
+                            Fantastic Beasts, but
+                            now I don't play wizards. Madonna and Eminem best choice."</p>
+                    </div>
                 </div>
             </section>
 
-            <section class ='history'>
-                <h2 class="history__title">My mates history</h2>
+            <section class='history'>
+                <h2 class="history__title">Or you can choose some one else:</h2>
                 <div class="history__grid">
                     <div class="history__card">
-                        <img class="history__photo" src="<%=require('./images/ilia-prus.jpg')%>" alt="history photo">
-                        <h3 class="history__name">Iliy Prus</h3>
-                        <p class="history__date">22.10.21</p>
+                        <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
+                        <h3 class="history__name">Max Tellor</h3>
+                        <button class="history__button">Ready</button>
+                        <p class="history__text">maxt@gmai.com</p>
+                        <p class="history__text">"Music"</p>
+                        <p class="history__text">"Racer. At school was a DJ. Now have two cats and a dog."</p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="<%=require('./images/yri-hova.jpg')%>" alt="history photo">
-                        <h3 class="history__name">Yri Hova</h3>
-                        <p class="history__date">09.09.21</p>
+                        <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
+                        <h3 class="history__name">Nick Richard</h3>
+                        <button class="history__button">Ready</button>
+                        <p class="history__text">rich92t@gmai.com</p>
+                        <p class="history__text">"Music"</p>
+                        <p class="history__text">"Teacher. I have a big CDs collection. Love Italy and France."</p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="<%=require('./images/ak-vitia.jpg')%>" alt="history photo">
-                        <h3 class="history__name">Vitia Ak</h3>
-                        <p class="history__date">17.08.21</p>
+                        <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
+                        <h3 class="history__name">Fill Kevil</h3>
+                        <button class="history__button">Ready</button>
+                        <p class="history__text">fill456@gmai.com</p>
+                        <p class="history__text">"Music"</p>
+                        <p class="history__text">"Trader. I love Sean Paul and David Guetta. Sometimes build car
+                            models."
+                        </p>
                     </div>
                     <div class="history__card">
-                        <img class="history__photo" src="<%=require('./images/nick-bask.jpg')%>" alt="history photo">
-                        <h3 class="history__name">Nick Bask</h3>
-                        <p class="history__date">05.07.21</p>
-                    </div>
-                    <div class="history__card">
-                        <img class="history__photo" src="<%=require('./images/fill-kir.jpg')%>" alt="history photo">
-                        <h3 class="history__name">Fill Kir</h3>
-                        <p class="history__date">27.07.21</p>
-                    </div>
-                    <div class="history__card">
-                        <img class="history__photo" src="<%=require('./images/Alla-Galk.jpg')%>" alt="history photo">
-                        <h3 class="history__name">Alla Galk</h3>
-                        <p class="history__date">14.06.21</p>
+                        <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
+                        <h3 class="history__name">Sean Govard</h3>
+                        <button class="history__button">Ready</button>
+                        <p class="history__text">sean59@gmai.com</p>
+                        <p class="history__text">"Music"</p>
+                        <p class="history__text">"Driver. For 10 years was a teacher of guitar. Like films with Eva
+                            Adams"</p>
                     </div>
                 </div>
             </section>
@@ -99,7 +117,7 @@
                     <input class="editPop__input input_type_Threethings" type="text">
                     <div class="editPop__underline"></div>
                     <button class="editPop__submitBtn" type="submit">Save</button>
-                    <img class="editPop__cross" src="<%=require('./images/CloseIcon.png')%>" alt="cross">
+                    <img class="editPop__cross" src="./images/CloseIcon.png" alt="cross">
                 </form>
             </section>
 
@@ -110,10 +128,10 @@
                         <button class="logoutPop__btnYes" type="submit">Yes</button>
                         <div class="logoutPop__btnNo">No</div>
                     </div>
-                    <img class="logoutPop__cross" src="<%=require('./images/CloseIcon.png')%>" alt="cross">
+                    <img class="logoutPop__cross" src="./images/CloseIcon.png" alt="cross">
                 </form>
             </section>
-            
+
         </div>
 
         <footer class="footer">
@@ -124,8 +142,9 @@
                 <a href="#" class="footer__link">Our website</a>
                 <a href="#" class="footer__link">Other</a>
             </nav>
-            <p class="footer__nametag">©2022. MrDrog</p>
+            <p class="footer__nametag">©2022. YouAreLion Team</p>
         </footer>
     </div>
 </body>
+
 </html>
