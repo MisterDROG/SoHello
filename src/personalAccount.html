@@ -27,20 +27,21 @@
             </section>
 
             <section class="profile">
-                <img class="profile__photo" src="./images/img_persAcc/personMoc.png" alt="profile photo">
+                <div class="profile__link-photo"><img class="profile__photo" src="./images/img_persAcc/personMoc.png"
+                        alt="profile photo"></div>
                 <div class="profile__infoContainer">
                     <h2 class="profile__title">My Profile</h2>
-                    <button class="history__button">Ready to meet</button>
+                    <button class="history__profile-button history__button_type_ready"
+                        id="button_user_ready">Loading...</button>
                     <div class="profile__editBtn">Edit Profile</div>
                     <p class="profile__header">Name:</p>
-                    <p class="profile__info" id="userName">Rita Dart</p>
+                    <p class="profile__info" id="userName">Loading...</p>
                     <p class="profile__header">Mail:</p>
-                    <p class="profile__info" id="userEmail">rita.dartk@von.com</p>
+                    <p class="profile__info" id="userEmail">Loading...</p>
                     <p class="profile__header">Interest:</p>
-                    <p class="profile__info" id="userInterest">Music</p>
+                    <p class="profile__info" id="userInterest">Loading...</p>
                     <p class="profile__header">Three things about me:</p>
-                    <p class="profile__info" id="userFacts">"Musician. Started 5 years ago. Love classic
-                        music. Was the presenter of the children's show on television."</p>
+                    <p class="profile__info" id="userFacts">Loading...</p>
                     <p class="profile__note">Note: If you are not ready to meet right now, just switch "Ready to meet"
                         button. We won't show your profile to other users.
                     </p>
@@ -52,13 +53,11 @@
                 <div class="meeting__include">
                     <div class="history__card">
                         <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
-                        <h3 class="history__name">Nick Debt</h3>
-                        <button class="history__button">Ready</button>
-                        <p class="history__text">nick_debt@gmai.com</p>
-                        <p class="history__text">"Music"</p>
-                        <p class="history__text">"Actor. I love playing bird characters. I liked
-                            Fantastic Beasts, but
-                            now I don't play wizards. Madonna and Eminem best choice."</p>
+                        <h3 class="history__name">Loading...</h3>
+                        <button class="history__button history__button_type_ready">Ready</button>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
                     </div>
                 </div>
             </section>
@@ -68,38 +67,35 @@
                 <div class="history__grid">
                     <div class="history__card">
                         <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
-                        <h3 class="history__name">Max Tellor</h3>
-                        <button class="history__button">Ready</button>
-                        <p class="history__text">maxt@gmai.com</p>
-                        <p class="history__text">"Music"</p>
-                        <p class="history__text">"Racer. At school was a DJ. Now have two cats and a dog."</p>
+                        <h3 class="history__name">Loading...</h3>
+                        <button class=" history__button_type_ready history__button_type_ready">Ready</button>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
                     </div>
                     <div class="history__card">
                         <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
-                        <h3 class="history__name">Nick Richard</h3>
-                        <button class="history__button">Ready</button>
-                        <p class="history__text">rich92t@gmai.com</p>
-                        <p class="history__text">"Music"</p>
-                        <p class="history__text">"Teacher. I have a big CDs collection. Love Italy and France."</p>
+                        <h3 class="history__name">Loading...</h3>
+                        <button class="history__button history__button_type_ready">Ready</button>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
                     </div>
                     <div class="history__card">
                         <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
-                        <h3 class="history__name">Fill Kevil</h3>
-                        <button class="history__button">Ready</button>
-                        <p class="history__text">fill456@gmai.com</p>
-                        <p class="history__text">"Music"</p>
-                        <p class="history__text">"Trader. I love Sean Paul and David Guetta. Sometimes build car
-                            models."
-                        </p>
+                        <h3 class="history__name">Loading...</h3>
+                        <button class="history__button history__button_type_ready">Ready</button>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
                     </div>
                     <div class="history__card">
                         <img class="history__photo" src="./images/img_persAcc/friendMoc.png" alt="user photo">
-                        <h3 class="history__name">Sean Govard</h3>
-                        <button class="history__button">Ready</button>
-                        <p class="history__text">sean59@gmai.com</p>
-                        <p class="history__text">"Music"</p>
-                        <p class="history__text">"Driver. For 10 years was a teacher of guitar. Like films with Eva
-                            Adams"</p>
+                        <h3 class="history__name">Loading...</h3>
+                        <button class="history__button history__button_type_ready">Ready</button>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
+                        <p class="history__text">Loading...</p>
                     </div>
                 </div>
             </section>
@@ -111,13 +107,38 @@
                     <input class="editPop__input input_type_Name" type="text">
                     <div class="editPop__underline"></div>
                     <p class="editPop__text">Interest:</p>
-                    <input class="editPop__input input_type_Interest" type="text">
+                    <div class="register__dropdown">
+                        <button class="register__dropbtn">
+                            <p class="register__dropbtnText input_type_Interest">Choose interest</p>
+                            <div class="register__arrowBox"></div>
+                        </button>
+                        <div class="register__dropdown-content">
+                            <p class="register__variant">Music</p>
+                            <p class="register__variant">Art</p>
+                            <p class="register__variant">Nomads</p>
+                            <p class="register__variant">Programming</p>
+                            <p class="register__variant">Gamedev</p>
+                        </div>
+                    </div>
                     <div class="editPop__underline"></div>
                     <p class="editPop__text">Three things about me:</p>
                     <input class="editPop__input input_type_Threethings" type="text">
                     <div class="editPop__underline"></div>
                     <button class="editPop__submitBtn" type="submit">Save</button>
                     <img class="editPop__cross" src="./images/CloseIcon.png" alt="cross">
+                </form>
+            </section>
+
+            <section class="editAvatarPop">
+                <form class="editAvatarPop__form">
+                    <h2 class="editAvatarPop__title">Change Avatar</h2>
+                    <p class="editAvatarPop__text">Image:</p>
+                    <p class="editAvatarPop__text" id="filenameText"></p>
+                    <input class="editAvatarPop__input" type="file" accept=".png, .jpg, .jpeg">
+                    <div class="editAvatarPop__underline"></div>
+                    <button class="editAvatarPop__submitBtn" id="profile__editChoose" type="button">Choose file</button>
+                    <button class="editAvatarPop__submitBtn" type="submit">Save</button>
+                    <img class="editAvatarPop__cross" src="./images/CloseIcon.png" alt="cross">
                 </form>
             </section>
 

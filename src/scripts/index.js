@@ -42,7 +42,7 @@ dropbtn.addEventListener('click', (evt) => {
     }   
 })
 
-//put to placeholder result of dropdoen chouse of interest
+//put to placeholder result of dropdown chouse of interest
 dropdownContent.addEventListener('click', (evt) => {
     dropbtnText.textContent = evt.target.textContent
     dropbtnText.style.color = 'black'

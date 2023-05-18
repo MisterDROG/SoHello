@@ -1,17 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/firebaseConfig";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
-import { getDatabase, ref, child, get  } from "firebase/database";
+import { getDatabase, ref, child, get, push, update } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const storage = getStorage(app)
+
+const auth = getAuth();
 
 export class Api {
     constructor() {
     }
 
     checksignIn() {  
-      const auth = getAuth();
       return auth.currentUser;
     }
 
@@ -66,8 +69,32 @@ export class Api {
           });
     }
 
-    changeProfileData() {
+    changeProfileData({name= '', interest= '', threeFacts ='', key='', ready = '', imgSrc=''} ={}) {   
+
+      const postData = {
+        name: name,
+        interest: interest,
+        imgSrc: imgSrc,
+        threeFacts: threeFacts,
+        ready: ready
+      };
       
+      let postKey = key
+      if (!postKey) {
+        postKey = push(child(ref(database), 'posts')).key;
+      }
+
+      postKey = '8'
+
+      const updates = {};
+
+      for (let key in postData) {
+        if (postData[key] !== '') {
+          updates['users/'+ `${postKey}/`+ `${key}/` ] = postData[key];
+        }
+      }
+    
+      return update(ref(database), updates);
     }
 
 }
