@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/SO.png">
+    <title>Hello</title>
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/SoHelloLogo.jpg" alt="Лого">
+        </header>
+
+        <main class="main">
+
+            <section class="title">
+                <h1 class="title__text">Help</h1>
+                <img class="title__img" src="./images/helpImg.png" alt="so what guy">
+            </section>
+
+            <section class="forWho">
+                <h2 class="forWho__title">How service works:</h2>
+                <div class="forWho__grid">
+                    <div class="forWho__card">
+                        <p class="forWho__text">1. You register by mail and fill in your personal data, choose your
+                            interest for which you want to find a partner and a few facts about yourself.</p>
+                        <a href="./index.html#top" class="forWho__link">Registration form</a>
+                    </div>
+                    <div class="forWho__card">
+                        <p class="forWho__text">2. Log in and enter your personal account. Press the "Ready to meet"
+                            button and you will be shown 5 potential partners suitable for your interests. Contact them
+                            by mail and communicate.</p>
+                        <a href="./personalAccount.html" class="forWho__link">Personal Account example</a>
+                    </div>
+                    <div class="forWho__card">
+                        <p class="forWho__text">3. If at the moment you are not ready for meetings, just click the
+                            "Ready for a meeting" button again and from that moment your card will not be shown to other
+                            participants. If you want new partners, just refresh the page.</p>
+                        <a href="./personalAccount.html" class="forWho__link">"Ready" button example</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="whyNeed">
+                <h2 class="whyNeed__title">What personal account can:</h2>
+                <div class="whyNeed__card">
+                    <div class="whyNeed__text-container">
+                        <p class="whyNeed__name">Edit personal data</p>
+                        <p class="whyNeed__text">If you want to change your interest in matching a partner or other
+                            personal information, click the "Edit profile" button and in the window that appears, enter
+                            new data and click "Save". You can also change your avatar. Click on an existing avatar and
+                            upload a
+                            new one in the window that appears.</p>
+                    </div>
+                </div>
+                <div class='whyNeed__card'>
+                    <div class="whyNeed__text-container">
+                        <p class="whyNeed__name">Change password</p>
+                        <p class="whyNeed__text">You can change the password for your account. Just use the form on this
+                            page below.</p>
+                    </div>
+                </div>
+                <div class='whyNeed__card'>
+                    <div class="whyNeed__text-container">
+                        <p class="whyNeed__name">Logout or delete account</p>
+                        <p class="whyNeed__text">If you want to log out of your account or delete it completely, click
+                            the "Logout" button at the top of the personal account page or "Delete profile" at the
+                            bottom.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="signIn" id="top">
+                <p class="signIn__title">Here you can change your password:</p>
+                <form class="register__form">
+                    <p class="register__subTitle" id="register__login">Email</p>
+                    <input type="text" class="register__input register__input_type_login">
+                    <p class="register__label" id="regLabelLogin"></p>
+                    <p class="register__subTitle" id="register__password">Current password</p>
+                    <input type="text" class="register__input register__input_type_password">
+                    <p class="register__label" id="regLabelPass"></p>
+                    <p class="register__subTitle" id="register__password">New password</p>
+                    <input type="text" class="register__input register__input_type_passwordCheck">
+                    <p class="register__label" id="regLabelPassConfirm"></p>
+                    <button type="submit" class="register__button">Set</button>
+                </form>
+            </div>
+
+            <section class="title">
+                <h1 class="title__text" id="contacts">Contacts</h1>
+                <p class="title__subtext">If you want ask your question, please use this mail:</p>
+                <p class="title__email">sohellolionteam@gmai.com</p>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <nav class="footer__links">
+                <a href="./index.html" class="footer__link">Home</a>
+                <a href="./personalAccount.html" class="footer__link">My Accont</a>
+                <a href="./helpPage.html" class="footer__link">Help</a>
+                <a href="./helpPage.html#contacts" class="footer__link">Contacts</a>
+            </nav>
+            <p class="footer__nametag">©2023. YouAreLion Team</p>
+        </footer>
+    </div>
+</body>
+
+</html>

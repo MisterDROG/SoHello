@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/firebaseConfig";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
 import { getDatabase, ref, child, get, push, update } from "firebase/database";
-import { getStorage } from "firebase/storage";
+import { getStorage, ref as refStor, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
@@ -14,7 +14,7 @@ export class Api {
     constructor() {
     }
 
-    checksignIn() {  
+    checkSignIn() {  
       return auth.currentUser;
     }
 
@@ -97,5 +97,14 @@ export class Api {
       return update(ref(database), updates);
     }
 
+    sendFileToStorage(file) {
+      const folderRef = `images/avatar${auth.currentUser.uid}`
+      const storageRef = refStor(storage, folderRef);
+      return uploadBytes(storageRef, file)
+      .then((snapshot) => {
+        return getDownloadURL(storageRef);
+      })
+      .then(url => url)
+    }
 }
 

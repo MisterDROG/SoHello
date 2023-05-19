@@ -1,5 +1,3 @@
-@import url(../vendor/normalize.css);
-
 html {
     scroll-behavior: smooth;
     background-color: #34C6CD;
@@ -9,10 +7,9 @@ html {
     background-color: #34C6CD;
     min-width: 320px;
     max-width: 1920px;
-    width: 100%;
     margin: 0 auto;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     color: #FFFFFF;
 }
 
@@ -52,25 +49,6 @@ html {
     }
 }
 
-.header__langs {
-    display: flex;
-    align-items: center;
-}
-
-.header__link-lang {
-    height: 100%;
-    font-size: 15px;
-    font-weight: bold;
-    color: #FFFFFF;
-    margin: 0 0 0 0;
-    padding: 10px;
-    text-decoration: none;
-    background-color: #8942D6;
-    border-radius: 20px;
-    box-sizing: border-box;
-    white-space: nowrap;
-}
-
 .header__link-lang:hover {
     text-decoration: underline;
 }
@@ -86,98 +64,44 @@ html {
     flex-direction: column;
 }
 
-.lead {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.title {
+    margin: 30px auto 0px auto;
+}
+
+.title__text {
+    margin: 40px 0;
+    padding: 0;
+    font-size: 40px;
     text-align: center;
-
 }
 
-.lead__iltle {
-    margin: 80px auto 20px auto;
-    font-size: 120px;
-    padding: 0;
-}
-
-@media screen and (max-width: 1140px) {
-    .lead__iltle {
-        font-size: 120px;
-    }
-}
-
-@media screen and (max-width: 984px) {
-    .lead__iltle {
-        font-size: 80px;
-    }
-}
-
-@media screen and (max-width: 568px) {
-    .lead__iltle {
-        font-size: 60px;
-    }
-}
-
-.lead__moto {
-    margin: 0;
-    padding: 0;
-}
-
-.aboutUs {
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    margin: 50px 0px 0px;
-    align-items: center;
-    justify-content: center;
-}
-
-@media screen and (max-width: 800px) {
-    .aboutUs {
-        flex-direction: column;
-    }
-}
-
-.aboutUs__img {
+.title__img {
     width: 280px;
     margin: 0;
 }
 
-.aboutUs__container {
-    background-color: white;
-    color: black;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px grey;
-    min-width: 200px;
-    max-width: 500px;
-    box-sizing: border-box;
+.title__subtext {
+    text-align: center;
+    font-size: 19px;
+}
+
+.title__email {
+    text-align: center;
+    font-weight: bold;
+    margin: 30px 0 30px;
+}
+
+.title__email {
+    text-align: center;
+    font-weight: bold;
+    margin: 30px 0 30px;
 }
 
 @media screen and (max-width: 800px) {
-    .aboutUs__container {
-        /* width: 100% */
+    .title__email {
+        margin: 30px 0 0;
     }
 }
-
-.aboutUs__title {
-    margin: 20px;
-    text-align: center;
-    justify-content: center;
-}
-
-.text_type_you {
-    margin: 20px 0 0 0;
-}
-
-.text_type_we {
-    margin: 5px 0 20px 0;
-}
-
-.aboutUs__span {
-    font-weight: 800;
-}
-
 
 .forWho__title {
     margin: 50px;
@@ -207,19 +131,28 @@ html {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
 
-.forWho__img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    object-position: bottom;
+.forWho__link {
+    padding: 20px;
+    background-color: #8942D6;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.forWho__link:hover {
+    box-shadow: 5px 5px 10px grey;
 }
 
 .forWho__text {
     text-align: center;
+    font-weight: bold;
 }
 
 .whyNeed {
@@ -286,7 +219,7 @@ html {
     width: 100%;
     min-width: 280px;
     max-width: 700px;
-    margin: 50px 0px;
+    margin: 50px 0px 0;
     padding: 30px 10px;
     display: flex;
     flex-direction: column;
@@ -305,95 +238,8 @@ html {
     text-align: center;
 }
 
-.signIn__switch {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0 15px 0;
-}
-
-.signIn__text-switchers {
-    width: 70px;
-    text-align: center;
-    margin: 0 10px;
-}
-
-.signIn__switcher {
-    position: relative;
-    display: inline-block;
-    width: 70px;
-    height: 20px;
-    outline: none;
-    background-color: #34C6CD;
-}
-
-.signIn__checkbox {
-    display: none;
-}
-
-
-.signIn__slider-point {
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 30px;
-    left: 5px;
-    bottom: -5px;
-    background-color: white;
-    transition: .4s;
-}
-
-.signIn__checkbox:checked~.signIn__slider-point {
-    transform: translateX(30px);
-}
-
-
-.signIn__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.signIn__subTitle {
-    margin: 20px 0 10px 0;
-    padding: 0;
-}
-
-.signIn__input {
-    border: 0;
-}
-
-.signIn__button {
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.12;
-    color: black;
-    text-decoration: none;
-    margin: 15px 0 0 0;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: #34C6CD;
-    width: 120px;
-    text-align: center;
-    border: 2px solid black;
-}
-
-.signIn__button:active {
-    background-color: #FFFFFF;
-}
-
-.signIn__label {
-    color: red;
-    text-align: center;
-    margin: 5px 0 0;
-    font-size: 13px;
-    width: 100%;
-}
-
 .register__form {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -422,8 +268,8 @@ html {
     border: 2px solid black;
 }
 
-.register__button:active {
-    background-color: white;
+.register__button:hover {
+    box-shadow: 5px 5px 10px black;
 }
 
 .register__label {
@@ -437,7 +283,7 @@ html {
 .register__textarea {
     width: 100%;
     height: 100px;
-    padding: 0;
+    ;
 }
 
 .register__dropdown {
@@ -460,7 +306,7 @@ html {
 }
 
 .register__dropbtnText {
-    padding: 1px 5px 0;
+    padding: 0 5px;
     margin: 0;
 }
 
@@ -477,20 +323,12 @@ html {
     color: black;
     padding: 10px 5px;
     margin: 0;
-    border-top: solid 1px grey;
-    cursor: pointer;
-    font-weight: bold;
+    border: solid 1px grey;
 }
 
-.register__variant:hover {
-    background-color: lightgray;
-}
-
-.register__arrowBox {
-    background-image: url(../images/ArrowBox.png);
-    width: 20px;
-    height: 20px;
-    background-size: contain;
+.register__variant:active {
+    color: white;
+    background-color: #34C6CD;
 }
 
 .footer {
@@ -518,7 +356,7 @@ html {
 
 @media screen and (max-width: 568px) {
     .footer {
-        margin: 0px 118px 0 16px;
+        margin: 50px 118px 0 16px;
         padding-bottom: 24px;
         flex-direction: column;
     }

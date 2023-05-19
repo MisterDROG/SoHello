@@ -663,12 +663,13 @@ html {
     color: black;
     padding: 10px 5px;
     margin: 0;
-    border: solid 1px grey;
+    border-top: solid 1px grey;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.register__variant:active {
-    color: white;
-    background-color: #34C6CD;
+.register__variant:hover {
+    background-color: lightgray;
 }
 
 .register__arrowBox {

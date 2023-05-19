@@ -7,9 +7,6 @@ const signInLogin = document.querySelector('.signIn__input_type_login')
 const signInPassword = document.querySelector('.signIn__input_type_password')
 const signInCheckbox = document.querySelector('.signIn__checkbox')
 
-const signOutBtn = document.querySelector('.header__link-out')
-const signCheck = document.querySelector('.header__link-check')
-
 const formRegistration = document.querySelector('.register__form')
 const regLogin = document.querySelector('.register__input_type_login')
 const regLabelLogin = document.getElementById('regLabelLogin') 
@@ -61,16 +58,6 @@ formSignIn.addEventListener('submit', (evt) => {
     apiIndex.signIn(signInLogin.value, signInPassword.value)
 })
 
-//sign out
-signOutBtn.addEventListener('click', (evt) => {
-    evt.preventDefault()
-    apiIndex.signOut()
-})
-
-signCheck.addEventListener('click', (evt) => {
-    evt.preventDefault()
-    apiIndex.checksignIn()
-})
 
 
 

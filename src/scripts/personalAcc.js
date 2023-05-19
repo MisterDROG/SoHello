@@ -24,6 +24,7 @@ const avatarEditPopUp = document.querySelector('.editAvatarPop')
 const avatarEditForm = document.querySelector('.editAvatarPop')
 const avatarEditExitBtn = document.querySelector('.editAvatarPop__cross')
 const avatarEditBtn = document.querySelector('.profile__link-photo')
+const avatarPhoto = document.querySelector('.profile__photo')
 const avatarChooseBtn = document.querySelector('#profile__editChoose')
 const avatarInput = document.querySelector('.editAvatarPop__input')
 const avatarFilename = document.querySelector('#filenameText')
@@ -42,36 +43,44 @@ const dropbtnText = document.querySelector('.register__dropbtnText')
 const btnReady = document.querySelector('#button_user_ready')
 
 const apiPA = new Api()
+let fileToStorage = ''
 
 async function getUsersData() {
-    const database = await apiPA.getUsersFromDB()
-    if (apiPA.checksignIn()) {
-        return database
+    const result = await apiPA.getUsersFromDB()
+    if (result) {
+        return result
     } else {
         return exampleData
     }
 }
 
 function getPersonalData(usersFromDB) {
-    if (usersFromDB) {
-        const userEmail = apiPA.checksignIn().email
+    let indexOfUser = 0
+    if (apiPA.checkSignIn()) {
+        const userEmail = apiPA.checkSignIn().email
         emailAcc.textContent = userEmail;
 
-        const indexOfUser = usersFromDB.findIndex((item) => item.email == userEmail)
-
-        nameAcc.textContent = usersFromDB[indexOfUser].name;
-        interestAcc.textContent = usersFromDB[indexOfUser].interest;
-        factsAcc.textContent = usersFromDB[indexOfUser].threeFacts;
-        if (!usersFromDB[indexOfUser].ready) {
-            btnReady.classList.add('history__button_type_offline')
-            btnReady.textContent = 'Not Ready to meet'
-        } else {
-            btnReady.classList.remove('history__button_type_offline')
-            btnReady.textContent = 'Ready to meet'
-        }
-        
-        usersFromDB.splice(indexOfUser,1)
+        indexOfUser = usersFromDB.findIndex((item) => item.email == userEmail)
+    }  else {
+        emailAcc.textContent = usersFromDB[indexOfUser].email;
     }
+
+    nameAcc.textContent = usersFromDB[indexOfUser].name
+    interestAcc.textContent = usersFromDB[indexOfUser].interest
+    factsAcc.textContent = usersFromDB[indexOfUser].threeFacts
+    if (usersFromDB[indexOfUser].imgSrc) {
+        avatarPhoto.src = usersFromDB[indexOfUser].imgSrc
+    }
+    avatarPhoto.src = usersFromDB[indexOfUser].imgSrc
+    if (!usersFromDB[indexOfUser].ready) {
+        btnReady.classList.add('history__button_type_offline')
+        btnReady.textContent = 'Not Ready to meet'
+    } else {
+        btnReady.classList.remove('history__button_type_offline')
+        btnReady.textContent = 'Ready to meet'
+    }
+    
+    usersFromDB.splice(indexOfUser,1)
 }
 
 function insertUsersData(usersFromDB) {
@@ -122,7 +131,7 @@ profileEditPopUp.addEventListener('click', (evt) => {
 
 profileEditForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    const userId = apiPA.checksignIn().uid
+    const userId = apiPA.checkSignIn().uid
     apiPA.changeProfileData({name: inputEditName.value, interest: inputEditInterest.value, threeFacts: inputEditFacts.value, key: userId})
     .then(() => {
         profileEditPopUp.style.display = 'none';
@@ -142,12 +151,19 @@ avatarEditPopUp.addEventListener('click', (evt) => {
 
 avatarEditForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    const userId = apiPA.checksignIn().uid
-    apiPA.changeProfileData({name: inputEditName.value, interest: inputEditInterest.value, threeFacts: inputEditFacts.value, key: userId})
-    .then(() => {
-        avatarEditPopUp.style.display = 'none';
-        window.location.reload()
-    })
+    if (fileToStorage) {
+        apiPA.sendFileToStorage(fileToStorage)
+        .then((res) => {
+            console.log(res)
+            const userId = apiPA.checkSignIn().uid
+            apiPA.changeProfileData({imgSrc: res, key: userId})
+        })
+        .then(()=>{
+            fileToStorage = ''
+            avatarEditPopUp.style.display = 'none';
+            window.location.reload()
+        })
+    }
 })
 
 avatarChooseBtn.addEventListener('click', () => {
@@ -156,13 +172,12 @@ avatarChooseBtn.addEventListener('click', () => {
 
 avatarInput.addEventListener('change', (event) => {
     avatarFilename.textContent = event.target.files[0].name
-    const formData = new FormData()
-    formData.append('file', event.target.files[0])
+    fileToStorage = event.target.files[0]
 })
 
 btnReady.addEventListener('click', (evt) => {
     evt.preventDefault();
-    const userId = apiPA.checksignIn().uid
+    const userId = apiPA.checkSignIn().uid
     const curReady = btnReady.classList.contains('history__button_type_offline')
     apiPA.changeProfileData({ready: curReady, key: userId})
     .then(() => {
