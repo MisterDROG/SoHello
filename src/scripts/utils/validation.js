@@ -18,7 +18,8 @@ export class Validation {
     }
 
     interest(input) {
-        if (validator.isEmpty(input.textContent, { ignore_whitespace: false })) {
+        console.log('input.textContent',input.textContent)
+        if (!(validator.isEmpty(input.textContent))) {
             return ''
         } else {
             return "Please, choose interest"
@@ -29,7 +30,7 @@ export class Validation {
         if (validator.isLength(input.value, { min: 10, max: 200 })) {
             return ''
         } else {
-            return "Facts should be from 6 to 20 symbpls"
+            return "Facts should be from 10 to 20 symbpls"
         }
     }
 

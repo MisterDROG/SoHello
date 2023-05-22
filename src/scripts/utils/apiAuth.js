@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/firebaseConfig";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser, updatePassword} from "firebase/auth";
 import { getDatabase, ref, child, get, push, update, remove} from "firebase/database";
 import { getStorage, ref as refStor, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -18,16 +18,15 @@ export class Api {
       return auth.currentUser;
     }
 
-    signIn(login, password) {   
+    signIn(login, password, errField) {  
+        errField.textContent = '' 
         signInWithEmailAndPassword(auth, login, password)
         .then((userCredential) => {
             // Signed in 
-            const user = userCredential.user;
             window.open('../personalAccount.html', '_self')
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            errField.textContent = error.message
         });
 
     } 
@@ -94,9 +93,7 @@ export class Api {
         window.open('../personalAccount.html', '_self')
       })
       .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      errField.textContent = errorMessage
+      errField.textContent = error.message
       });
   }
 
@@ -127,6 +124,26 @@ export class Api {
     deleteProfileData() {
       var dadaRef = ref(database, `users/${auth.currentUser.uid}`)
       return remove(dadaRef)
+    }
+
+    updateUserPassword(user, password, newPassword, errField) {
+      console.log('Click')
+      errField.textContent = ''
+      signInWithEmailAndPassword(auth, user, password)
+      .then(()=> {
+        console.log('Signed in')
+        return updatePassword(auth.currentUser, newPassword)
+      })
+      .then(() => {
+        console.log('Password updated')
+        return signOut(auth)
+      })
+      .then(() => {
+        console.log('Signed out')
+        errField.textContent = "Update successful"
+      }).catch((error) => {
+        errField.textContent = error.message
+      });
     }
 }
 
