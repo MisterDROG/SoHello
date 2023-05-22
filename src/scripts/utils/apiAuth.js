@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/firebaseConfig";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
-import { getDatabase, ref, child, get, push, update } from "firebase/database";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, deleteUser} from "firebase/auth";
+import { getDatabase, ref, child, get, push, update, remove} from "firebase/database";
 import { getStorage, ref as refStor, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const app = initializeApp(firebaseConfig);
@@ -23,7 +23,6 @@ export class Api {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log('sign-in done')
             window.open('../personalAccount.html', '_self')
         })
         .catch((error) => {
@@ -42,20 +41,6 @@ export class Api {
           });
     } 
 
-    createUser(login, password, errField) {
-        errField.textContent = ''
-        createUserWithEmailAndPassword(auth, login, password)
-        .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        })
-        .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        errField.textContent = errorMessage
-        });
-    }
-
     getUsersFromDB() {
         const allUsersRef = ref(database);
         return get(child(allUsersRef, `users/`)).then((snapshot) => {
@@ -69,10 +54,11 @@ export class Api {
           });
     }
 
-    changeProfileData({name= '', interest= '', threeFacts ='', key='', ready = '', imgSrc=''} ={}) {   
-
+    changeProfileData({name= '', email ='', interest= '', threeFacts ='', key='', ready = '', imgSrc=''} ={}) {   
       const postData = {
         name: name,
+        email: email,
+        id: key,
         interest: interest,
         imgSrc: imgSrc,
         threeFacts: threeFacts,
@@ -84,18 +70,35 @@ export class Api {
         postKey = push(child(ref(database), 'posts')).key;
       }
 
-      postKey = '8'
-
       const updates = {};
 
       for (let key in postData) {
         if (postData[key] !== '') {
+
           updates['users/'+ `${postKey}/`+ `${key}/` ] = postData[key];
         }
       }
     
       return update(ref(database), updates);
     }
+
+    createUser(login, password, errField, name, interest, threeFacts, changeProfileDataFunc) {
+      errField.textContent = ''
+      createUserWithEmailAndPassword(auth, login, password)
+      .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      return changeProfileDataFunc({name: name, email: login, interest: interest, threeFacts: threeFacts, key:user.uid, ready: true, imgSrc: "null"})
+      })
+      .then(() => {
+        window.open('../personalAccount.html', '_self')
+      })
+      .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      errField.textContent = errorMessage
+      });
+  }
 
     sendFileToStorage(file) {
       const folderRef = `images/avatar${auth.currentUser.uid}`
@@ -105,6 +108,25 @@ export class Api {
         return getDownloadURL(storageRef);
       })
       .then(url => url)
+    }
+
+    deleteUserFc(deleteDataFc) {
+      deleteDataFc()
+      .then(() =>{
+        return deleteUser(auth.currentUser)
+      })
+      .then(() => {
+        // User deleted.
+        window.open('../index.html', '_self')
+      })
+      .catch((error) => {
+        // An error ocurred
+      });
+    }
+
+    deleteProfileData() {
+      var dadaRef = ref(database, `users/${auth.currentUser.uid}`)
+      return remove(dadaRef)
     }
 }
 

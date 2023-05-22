@@ -143,6 +143,7 @@ html {
     color: white;
     border-radius: 20px;
     text-decoration: none;
+    text-align: center;
     font-size: 18px;
 }
 
@@ -337,6 +338,7 @@ html {
     margin: 50px 48px 0 48px;
     padding-bottom: 24px;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
 }
 

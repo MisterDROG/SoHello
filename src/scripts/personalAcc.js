@@ -42,13 +42,20 @@ const dropbtnText = document.querySelector('.register__dropbtnText')
 
 const btnReady = document.querySelector('#button_user_ready')
 
+const deleteAccBtn = document.querySelector('#footer__btnDel')
+const deleteAccpopUp = document.querySelector('.deleteAccPop')
+const deleteAccForm = document.querySelector('.deleteAccPop__form')
+const deleteAccbtnNo = document.querySelector('.deleteAccPop__btnNo')
+const deleteAccExitBtn = document.querySelector('.deleteAccPop__cross')
+
 const apiPA = new Api()
 let fileToStorage = ''
+let userInterest = ''
 
 async function getUsersData() {
     const result = await apiPA.getUsersFromDB()
     if (result) {
-        return result
+        return Object.values(result)
     } else {
         return exampleData
     }
@@ -59,7 +66,6 @@ function getPersonalData(usersFromDB) {
     if (apiPA.checkSignIn()) {
         const userEmail = apiPA.checkSignIn().email
         emailAcc.textContent = userEmail;
-
         indexOfUser = usersFromDB.findIndex((item) => item.email == userEmail)
     }  else {
         emailAcc.textContent = usersFromDB[indexOfUser].email;
@@ -68,10 +74,15 @@ function getPersonalData(usersFromDB) {
     nameAcc.textContent = usersFromDB[indexOfUser].name
     interestAcc.textContent = usersFromDB[indexOfUser].interest
     factsAcc.textContent = usersFromDB[indexOfUser].threeFacts
-    if (usersFromDB[indexOfUser].imgSrc) {
+
+    userInterest = usersFromDB[indexOfUser].interest
+
+    if (usersFromDB[indexOfUser].imgSrc !== "null") {
         avatarPhoto.src = usersFromDB[indexOfUser].imgSrc
+    } else {
+        avatarPhoto.src = './images/personMoc.png'
     }
-    avatarPhoto.src = usersFromDB[indexOfUser].imgSrc
+
     if (!usersFromDB[indexOfUser].ready) {
         btnReady.classList.add('history__button_type_offline')
         btnReady.textContent = 'Not Ready to meet'
@@ -85,7 +96,7 @@ function getPersonalData(usersFromDB) {
 
 function insertUsersData(usersFromDB) {
     if (usersFromDB) {
-        const readyUsers = usersFromDB.filter((user) => user.ready == true)
+        const readyUsers = usersFromDB.filter((user) => (user.ready == true && user.interest == userInterest))
         meetingMain.innerHTML = '';
         renderFriendCard(readyUsers.splice((Math.floor(Math.random() * readyUsers.length)),1)[0], meetingMain)
         historyGrid.innerHTML = '';
@@ -132,7 +143,7 @@ profileEditPopUp.addEventListener('click', (evt) => {
 profileEditForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const userId = apiPA.checkSignIn().uid
-    apiPA.changeProfileData({name: inputEditName.value, interest: inputEditInterest.value, threeFacts: inputEditFacts.value, key: userId})
+    apiPA.changeProfileData({name: inputEditName.value, interest: inputEditInterest.textContent, threeFacts: inputEditFacts.value, key: userId})
     .then(() => {
         profileEditPopUp.style.display = 'none';
         window.location.reload()
@@ -200,4 +211,24 @@ dropdownContent.addEventListener('click', (evt) => {
     dropbtnText.textContent = evt.target.textContent
     dropbtnText.style.color = 'black'
     dropdownContent.style.display = "none"
+})
+
+//delete account open popup
+deleteAccBtn.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    deleteAccpopUp.style.display = 'flex';
+})
+
+//delete account
+deleteAccForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    apiPA.deleteUserFc(apiPA.deleteProfileData)
+    deleteAccpopUp.style.display = 'none';
+})
+
+//delete account close popup
+deleteAccpopUp.addEventListener('click', (evt) => {
+    if (evt.target == evt.currentTarget || evt.target == deleteAccbtnNo || evt.target == deleteAccExitBtn) {
+        deleteAccpopUp.style.display = 'none';
+    }
 })

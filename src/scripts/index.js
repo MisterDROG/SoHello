@@ -11,6 +11,8 @@ const formRegistration = document.querySelector('.register__form')
 const regLogin = document.querySelector('.register__input_type_login')
 const regLabelLogin = document.getElementById('regLabelLogin') 
 const regPassword = document.querySelector('.register__input_type_password')
+const regName = document.querySelector('.register__input_type_name')
+const regFacts = document.querySelector('.register__textarea_type_things')
 
 const dropbtn = document.querySelector('.register__dropbtn')
 const dropdownContent = document.querySelector('.register__dropdown-content')
@@ -49,7 +51,7 @@ dropdownContent.addEventListener('click', (evt) => {
 //register user
 formRegistration.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    apiIndex.createUser(regLogin.value, regPassword.value, regLabelLogin)
+    apiIndex.createUser(regLogin.value, regPassword.value, regLabelLogin, regName.value, dropbtnText.textContent, regFacts.value, apiIndex.changeProfileData)
 })
 
 //login user
@@ -57,55 +59,5 @@ formSignIn.addEventListener('submit', (evt) => {
     evt.preventDefault()
     apiIndex.signIn(signInLogin.value, signInPassword.value)
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// formRegistration.addEventListener('submit', (evt) => {
-//     evt.preventDefault()
-//     if (valid.checkTwoPasswods(regPassword, regPasswordCheck)) {
-//         regLabelPass.textContent = ""
-//         regLabelPassConfirm.textContent = ""
-//         formSignIn.style.display = "flex";
-//         formRegistration.style.display = "none";
-//         signInCheckbox.checked = false;
-//         api.register(regLogin, regPassword)
-//         signIn__title.textContent = "Registration success! Please, sign in:"
-//     } else {
-//         regLabelPass.textContent = "*Different Passwords"
-//         regLabelPassConfirm.textContent = "*Different Passwords"
-//     }
-// })
-
-
-
-// formSignIn.addEventListener('submit', (evt) => {
-//     evt.preventDefault()
-//     api.signIn()
-//     return fetch('https://sohellotest-default-rtdb.firebaseio.com/users.json')
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((data) => {
-//         console.log(data);
-//         console.log(signInLogin.value);
-//         let userAcc = userSearch(data, signInLogin.value)
-//         localStorage.setItem('userAcc', JSON.stringify(userAcc))
-//         window.open('../personalAccount.html', '_self')
-//         })
-
-// })
 
 

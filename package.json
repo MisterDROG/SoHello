@@ -38,6 +38,7 @@
     "core-js": "^3.23.5",
     "crypto": "^1.0.1",
     "firebase": "^9.22.0",
-    "jshashes": "^1.0.8"
+    "jshashes": "^1.0.8",
+    "validator": "^13.9.0"
   }
 }
