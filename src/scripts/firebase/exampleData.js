@@ -1,11 +1,12 @@
+//data for loading of demostration version of personal account page
 export const exampleData = [
       {
-        "email": "nick_debt@gmai.com",
+        "email": "your@email.com",
         "id": 0,
-        "name": "Nick Debt",
+        "name": "Your name",
         "interest": "Music",
         "imgSrc": "null",
-        "threeFacts": "Actor. I love playing bird characters. I liked Fantastic Beasts, but now I don't play wizards. Madonna and Eminem best choice",
+        "threeFacts": "Some interesting facts about you, which will help other users to start a dialog. Feel free to enter what you comfort with.",
         "ready": true
       },
       {
@@ -69,6 +70,15 @@ export const exampleData = [
         "interest": "Music",
         "imgSrc": "null",
         "threeFacts": "Musician. Started 5 years ago. Love classic music. Was the presenter of the children's show on television.",
+        "ready": true
+      },
+      {
+        "email": "nick_debt@gmai.com",
+        "id": 8,
+        "name": "Nick Debt",
+        "interest": "Music",
+        "imgSrc": "null",
+        "threeFacts": "Actor. I love playing bird characters. I liked Fantastic Beasts, but now I don't play wizards. Madonna and Eminem best choice",
         "ready": true
       }
 ]

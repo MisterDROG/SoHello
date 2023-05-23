@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./images/SO.png">
     <title>Hello</title>
-
-
 </head>
 
 <body>
@@ -16,7 +14,7 @@
         <div class="header">
             <img class="header__logo" src="./images/SoHelloLogo.jpg" alt="Лого">
             <div class="header__langs">
-                <a class="header__link-lang" href="#">Log Out</a>
+                <button class="header__link-lang" href="">Log Out</button>
             </div>
         </div>
 
@@ -31,9 +29,10 @@
                         alt="profile photo"></div>
                 <div class="profile__infoContainer">
                     <h2 class="profile__title">My Profile</h2>
+                    <p class="profile__info_red" id="profileError"></p>
                     <button class="history__profile-button history__button_type_ready"
                         id="button_user_ready">Loading...</button>
-                    <div class="profile__editBtn">Edit Profile</div>
+                    <button class="profile__editBtn">Edit Profile</button>
                     <p class="profile__header">Name:</p>
                     <p class="profile__info" id="userName">Loading...</p>
                     <p class="profile__header">Mail:</p>
@@ -42,9 +41,6 @@
                     <p class="profile__info" id="userInterest">Loading...</p>
                     <p class="profile__header">Three things about me:</p>
                     <p class="profile__info" id="userFacts">Loading...</p>
-                    <p class="profile__note">Note: If you are not ready to meet right now, just switch "Ready to meet"
-                        button. We won't show your profile to other users.
-                    </p>
                 </div>
             </section>
 

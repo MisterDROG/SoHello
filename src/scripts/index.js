@@ -1,5 +1,5 @@
 import '../vendor/normalize.css'
-import '../pages/index.css'
+import '../pagesCSS/index.css'
 import { Api } from './utils/apiAuth'
 import { Validation } from './utils/validation'
 
@@ -80,5 +80,4 @@ formSignIn.addEventListener('submit', (evt) => {
     evt.preventDefault()
     apiIndex.signIn(signInLogin.value, signInPassword.value, signInLabelStatus)
 })
-
 

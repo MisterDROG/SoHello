@@ -1,5 +1,5 @@
 import '../vendor/normalize.css'
-import '../pages/passwordChange.css'
+import '../pagesCSS/passwordChange.css'
 import { Api } from './utils/api'
 import { Validation } from './utils/validation'
 
@@ -10,6 +10,7 @@ const passwordCheckInput = document.querySelector('.register__input_type_passwor
 const valid = new Validation()
 const apiPasswordChange = new Api()
 
+//change password from email
 passwordForm.addEventListener('submit', (evt) => {
     evt.preventDefault()
     if (valid.checkTwoPasswods(passwordInput, passwordCheckInput)) {

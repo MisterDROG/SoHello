@@ -56,6 +56,8 @@ html {
     border-radius: 20px;
     box-sizing: border-box;
     white-space: nowrap;
+    border: none;
+    cursor: pointer;
 }
 
 .header__link-lang:hover {
@@ -164,12 +166,14 @@ html {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 600px;
+    width: 300px;
 }
 
 @media screen and (max-width: 800px) {
     .profile__infoContainer {
         align-items: center;
+        width: auto;
+        max-width: 400px;
     }
 }
 
@@ -198,10 +202,10 @@ html {
     padding: 5px 10px;
     border-radius: 5px;
     background-color: white;
-    width: 100px;
     text-align: center;
     border: 2px solid black;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .profile__editBtn:hover {
@@ -223,6 +227,25 @@ html {
 .profile__info {
     font-size: 15px;
     margin: 10px 0;
+}
+
+.profile__info#userFacts {
+    font-size: 15px;
+    margin: 10px 0;
+    height: 40px;
+}
+
+@media screen and (max-width: 800px) {
+    .profile__info#userFacts {
+        height: auto
+    }
+}
+
+.profile__info_red {
+    font-size: 15px;
+    margin: 10px 0;
+    text-align: center;
+    color: red;
 }
 
 @media screen and (max-width: 800px) {
@@ -256,6 +279,8 @@ html {
     border-radius: 5px;
     margin: 0 auto 10px;
     cursor: pointer;
+    color: black;
+    border: 2px solid black
 }
 
 .history__profile-button:hover {

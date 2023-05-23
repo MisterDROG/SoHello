@@ -1,5 +1,5 @@
 import '../vendor/normalize.css'
-import '../pages/personalAcc.css'
+import '../pagesCSS/personalAcc.css'
 import { exampleData } from './firebase/exampleData'
 import { Api } from './utils/apiAuth'
 import renderFriendCard from './components/friendsCards'
@@ -41,6 +41,7 @@ const dropdownContent = document.querySelector('.register__dropdown-content')
 const dropbtnText = document.querySelector('.register__dropbtnText')
 
 const btnReady = document.querySelector('#button_user_ready')
+const profileError = document.querySelector('#profileError')
 
 const deleteAccBtn = document.querySelector('#footer__btnDel')
 const deleteAccpopUp = document.querySelector('.deleteAccPop')
@@ -68,6 +69,11 @@ function getPersonalData(usersFromDB) {
         emailAcc.textContent = userEmail;
         indexOfUser = usersFromDB.findIndex((item) => item.email == userEmail)
     }  else {
+        logOutBtn.disabled = true
+        btnReady.disabled = true
+        profileEditBtn.disabled = true
+        deleteAccBtn.disabled = true
+        profileError.textContent = 'You are not logged into your account. This is an example of how the personal account page looks like. Account buttons are disabled.'
         emailAcc.textContent = usersFromDB[indexOfUser].email;
     }
 

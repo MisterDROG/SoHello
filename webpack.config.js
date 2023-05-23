@@ -8,7 +8,7 @@ module.exports = {
   entry: {
     index: './scripts/index.js',
     personalAcc: './scripts/personalAcc.js',
-    passwordChange: './scripts/passwordChange.js',
+    // passwordChange: './scripts/passwordChange.js',
     helpPage: './scripts/helpPage.js'
   },
   output: {
@@ -68,11 +68,11 @@ module.exports = {
       template: './personalAccount.html',
       chunks: ['personalAcc']
     }),
-    new HtmlWebpackPlugin({
-      filename: 'passwordChange.html',
-      template: './passwordChange.html',
-      chunks: ['passwordChange']
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'passwordChange.html',
+    //   template: './passwordChange.html',
+    //   chunks: ['passwordChange']
+    // }),
     new HtmlWebpackPlugin({
       filename: 'helpPage.html',
       template: './helpPage.html',
