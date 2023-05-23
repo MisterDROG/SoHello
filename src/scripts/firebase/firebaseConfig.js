@@ -1,3 +1,4 @@
+//config file for firebase
 export const firebaseConfig = {
     apiKey: "AIzaSyDahAgKBtvgPb2hqEclkWYTz16oCfpbm1Q",
     authDomain: "sohello-app.firebaseapp.com",

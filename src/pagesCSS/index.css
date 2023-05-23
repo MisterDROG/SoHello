@@ -405,6 +405,7 @@ html {
 
 .register__input {
     border: 0;
+    width: 200px;
 }
 
 .register__button {
@@ -435,13 +436,13 @@ html {
 }
 
 .register__textarea {
-    width: 100%;
+    width: 200px;
     height: 100px;
     padding: 0;
 }
 
 .register__dropdown {
-    width: 100%;
+    width: 200px;
     height: 20px;
     position: relative;
 }
@@ -456,11 +457,16 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0;
+    padding: 0 0 0 5px;
 }
 
 .register__dropbtnText {
-    padding: 1px 5px 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+}
+
+.register__dropbtn-palceholder {
+    padding: 1px 0 0 0;
     margin: 0;
 }
 

@@ -20,7 +20,6 @@ const regName = document.querySelector('.register__input_type_name')
 const regLabelName = document.querySelector('#regLabelName')
 const regFacts = document.querySelector('.register__textarea_type_things')
 const regLabelFacts = document.querySelector('#regThings')
-
 const regLables = document.querySelectorAll('.register__label')
 const regLabelStatus = document.querySelector('#regLabelStatus')
 
@@ -28,6 +27,7 @@ const dropbtn = document.querySelector('.register__dropbtn')
 const dropdownContent = document.querySelector('.register__dropdown-content')
 const dropbtnText = document.querySelector('.register__dropbtnText')
 const dropLabel = document.querySelector('#regInterest')
+const dropPlaceHolder = document.querySelector('.register__dropbtn-palceholder')
 
 const apiIndex = new Api()
 const valid = new Validation()
@@ -57,7 +57,8 @@ dropbtn.addEventListener('click', (evt) => {
 dropdownContent.addEventListener('click', (evt) => {
     dropbtnText.textContent = evt.target.textContent
     dropbtnText.style.color = 'black'
-    dropdownContent.style.display = "none"
+    dropPlaceHolder.style.display = 'none'
+    dropdownContent.style.display = 'none'
 })
 
 //register user
@@ -71,7 +72,7 @@ formRegistration.addEventListener('submit', (evt) => {
     regLabelPasswordConf.textContent = valid.twoPasswods(regPassword ,regPasswordConf)
 
     if (!(Array.from(regLables).some((item) => item.textContent !== ''))) {
-        apiIndex.createUser(regLogin.value, regPassword.value, regLabelStatus, regName.value, dropbtnText.textContent, regFacts.value, apiIndex.changeProfileData)
+        apiIndex.createUser(regLogin.value, regPassword.value, regLabelStatus, regName.value, dropbtnText.textContent, regFacts.value)
     }
 })
 

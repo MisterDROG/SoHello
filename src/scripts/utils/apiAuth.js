@@ -14,10 +14,12 @@ export class Api {
     constructor() {
     }
 
+    //function for checking authentication status
     checkSignIn() {  
       return auth.currentUser;
     }
 
+    //function for user sign in
     signIn(login, password, errField) {  
         errField.textContent = '' 
         signInWithEmailAndPassword(auth, login, password)
@@ -31,28 +33,35 @@ export class Api {
 
     } 
 
-    signOut() {   
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            console.log('sign-out done')
-            window.open('../index.html', '_self')
-          }).catch((error) => {
-          });
+    //function for user sign out
+    signOut(errField) {   
+      errField.textContent = ''
+      signOut(auth).then(() => {
+          // Sign-out successful.
+          console.log('sign-out done')
+          window.open('../index.html', '_self')
+        }).
+        catch((error) => {
+          errField.textContent = error.message
+        });
     } 
 
-    getUsersFromDB() {
-        const allUsersRef = ref(database);
-        return get(child(allUsersRef, `users/`)).then((snapshot) => {
-            if (snapshot.exists()) {
-              return snapshot.val()
-            } else {
-              return "No data available"
-            }
-          }).catch((error) => {
-            console.error(error);
-          });
+    //function for getting all users from database
+    getUsersFromDB(errField) {
+      errField.textContent = ''
+      const allUsersRef = ref(database);
+      return get(child(allUsersRef, `users/`)).then((snapshot) => {
+          if (snapshot.exists()) {
+            return snapshot.val()
+          } else {
+            return "No data available"
+          }
+        }).catch((error) => {
+          errField.textContent = 'You are not logged into your account. This is an example of how the personal account page looks like. Account buttons are disabled. Please, go to Home page and Sign In or Register.'
+        });
     }
 
+    //function for changing data of user in the users storage
     changeProfileData({name= '', email ='', interest= '', threeFacts ='', key='', ready = '', imgSrc=''} ={}) {   
       const postData = {
         name: name,
@@ -70,10 +79,8 @@ export class Api {
       }
 
       const updates = {};
-
       for (let key in postData) {
         if (postData[key] !== '') {
-
           updates['users/'+ `${postKey}/`+ `${key}/` ] = postData[key];
         }
       }
@@ -81,13 +88,14 @@ export class Api {
       return update(ref(database), updates);
     }
 
-    createUser(login, password, errField, name, interest, threeFacts, changeProfileDataFunc) {
+    //function for creating user
+    createUser(login, password, errField, name, interest, threeFacts) {
       errField.textContent = ''
       createUserWithEmailAndPassword(auth, login, password)
       .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      return changeProfileDataFunc({name: name, email: login, interest: interest, threeFacts: threeFacts, key:user.uid, ready: true, imgSrc: "null"})
+        // Signed in 
+        const user = userCredential.user;
+        return this.changeProfileData({name: name, email: login, interest: interest, threeFacts: threeFacts, key:user.uid, ready: true, imgSrc: "null"})
       })
       .then(() => {
         window.open('../personalAccount.html', '_self')
@@ -97,7 +105,8 @@ export class Api {
       });
   }
 
-    sendFileToStorage(file) {
+    sendFileToStorage(file, errField) {
+      errField.textContent = ''
       const folderRef = `images/avatar${auth.currentUser.uid}`
       const storageRef = refStor(storage, folderRef);
       return uploadBytes(storageRef, file)
@@ -105,10 +114,15 @@ export class Api {
         return getDownloadURL(storageRef);
       })
       .then(url => url)
+      .catch((error) => {
+        errField.textContent = error.message
+      });
     }
 
-    deleteUserFc(deleteDataFc) {
-      deleteDataFc()
+    //function for delete user from authentication database
+    deleteUser(errField) {
+      errField.textContent = ''
+      this.deleteProfileData()
       .then(() =>{
         return deleteUser(auth.currentUser)
       })
@@ -117,29 +131,27 @@ export class Api {
         window.open('../index.html', '_self')
       })
       .catch((error) => {
-        // An error ocurred
+        errField.textContent = error.message
       });
     }
 
+    //function for delete data of user from users database
     deleteProfileData() {
       var dadaRef = ref(database, `users/${auth.currentUser.uid}`)
       return remove(dadaRef)
     }
 
+    //function for changing password
     updateUserPassword(user, password, newPassword, errField) {
-      console.log('Click')
       errField.textContent = ''
       signInWithEmailAndPassword(auth, user, password)
       .then(()=> {
-        console.log('Signed in')
         return updatePassword(auth.currentUser, newPassword)
       })
       .then(() => {
-        console.log('Password updated')
         return signOut(auth)
       })
       .then(() => {
-        console.log('Signed out')
         errField.textContent = "Update successful"
       }).catch((error) => {
         errField.textContent = error.message

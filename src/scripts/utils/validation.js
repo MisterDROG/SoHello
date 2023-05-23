@@ -1,5 +1,6 @@
 import validator from 'validator';
 
+//class for validation fields of forms
 export class Validation {
     twoPasswods(firstInput, secondInput) {
         if (firstInput.value == secondInput.value) {
