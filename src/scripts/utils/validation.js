@@ -19,7 +19,6 @@ export class Validation {
     }
 
     interest(input) {
-        console.log('input.textContent',input.textContent)
         if (!(validator.isEmpty(input.textContent))) {
             return ''
         } else {

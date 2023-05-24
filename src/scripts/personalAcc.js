@@ -219,6 +219,7 @@ function getPersonalData(usersFromDB) {
         btnReady.disabled = true
         profileEditBtn.disabled = true
         deleteAccBtn.disabled = true
+        avatarEditBtn.disabled = true
     }
 
     emailAcc.textContent = usersFromDB[indexOfUser].email;

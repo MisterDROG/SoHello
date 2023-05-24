@@ -24,7 +24,7 @@ export class Api {
         errField.textContent = '' 
         signInWithEmailAndPassword(auth, login, password)
         .then((userCredential) => {
-            // Signed in 
+            //Signed in 
             window.open('../personalAccount.html', '_self')
         })
         .catch((error) => {
@@ -37,8 +37,7 @@ export class Api {
     signOut(errField) {   
       errField.textContent = ''
       signOut(auth).then(() => {
-          // Sign-out successful.
-          console.log('sign-out done')
+          //Sign-out successful.
           window.open('../index.html', '_self')
         }).
         catch((error) => {
@@ -93,7 +92,7 @@ export class Api {
       errField.textContent = ''
       createUserWithEmailAndPassword(auth, login, password)
       .then((userCredential) => {
-        // Signed in 
+        //Signed in 
         const user = userCredential.user;
         return this.changeProfileData({name: name, email: login, interest: interest, threeFacts: threeFacts, key:user.uid, ready: true, imgSrc: "null"})
       })
@@ -105,6 +104,7 @@ export class Api {
       });
   }
 
+    //function tp push image to the data base and return url of it
     sendFileToStorage(file, errField) {
       errField.textContent = ''
       const folderRef = `images/avatar${auth.currentUser.uid}`
@@ -127,7 +127,7 @@ export class Api {
         return deleteUser(auth.currentUser)
       })
       .then(() => {
-        // User deleted.
+        //User deleted.
         window.open('../index.html', '_self')
       })
       .catch((error) => {
