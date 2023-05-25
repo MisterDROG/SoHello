@@ -23,7 +23,7 @@ Technologies:
 Future plans:
 - Right now site is ready but strongly tested for errors.
 - Refactoring, updating loaders, additional modules for interpreting errors to the user
-- Transition to Next
+- Transition to Next.js
 
 Video review: https://disk.yandex.ru/i/9H9eI2iCMkZBLg
 
