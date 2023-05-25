@@ -14,7 +14,7 @@ export class Validation {
         if (validator.isLength(input.value, { min: 6, max: 20 })) {
             return ''
         } else {
-            return "Name should be from 6 to 20 symbpls"
+            return "Name should be from 6 to 20 symbols"
         }
     }
 
@@ -30,7 +30,7 @@ export class Validation {
         if (validator.isLength(input.value, { min: 10, max: 200 })) {
             return ''
         } else {
-            return "Facts should be from 10 to 20 symbpls"
+            return "Facts should be from 10 to 20 symbols"
         }
     }
 
@@ -46,7 +46,7 @@ export class Validation {
         if (validator.isLength(input.value, { min: 6, max: 20 })) {
             return ''
         } else {
-            return "Password should be from 6 to 20 symbpls"
+            return "Password should be from 6 to 20 symbols"
         }
     }
 
